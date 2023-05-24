@@ -1,5 +1,5 @@
 /* ---------------------- 
-Stylesheet Guide
+Stylesheet guide
 -------------------------
 
 GENERAL STYLES
@@ -67,7 +67,7 @@ html {
 body {
     font-weight: 400;
     color: #444;
-    font-family: 'Merriweather', Georgia, serif;
+    font-family: "Google Sans",sans-serif;
     line-height: 1.88;
     font-size: 1rem;
     background-color: #1f1f1f;
@@ -103,14 +103,14 @@ button,
 .eskimo-carousel-view-more,
 .eskimo-slider-date,
 .eskimo-author-subtitle {
-    font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
+    font-family: "Google Sans",sans-serif;
 }
 
 .eskimo-pager,
 .eskimo-page-links,
 .eskimo-top-icons li a span,
 .eskimo-categories ul li span {
-    font-family: "Helvetica", Arial, sans-serif;
+    font-family: "Google Sans",sans-serif;
 }
 
 h1,
@@ -126,21 +126,29 @@ h6,
 .h5,
 .h6,
 .card-title {
-    font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
+    font-family: "font";
     margin-bottom: 2rem;
     font-weight: 700;
     line-height: 1.3;
-    color: #2d2f31333;
+    color: #e3e3e3;
 }
 
 h1,
 .h1 {
-    font-size: 2.25rem;
+    font-family: "Google Sans",sans-serif;
+    font-size: 57px;
+    font-weight: 475;
+    letter-spacing: 0;
+    line-height: 52px;
+    font-variation-settings: "GRAD" 0,"opsz" 18;
 }
 
-h2,
-.h2 {
-    font-size: 2rem;
+h2 {
+    color: #e3e3e3;
+    font-size: 45px;
+    line-height: 52px;
+    font-weight: 475;
+    font-family: "Google Sans",sans-serif;
 }
 
 h3,
@@ -162,7 +170,9 @@ h6,
 .h6 {
     font-size: 1.3rem;
 }
-
+.span{
+    font-family:"Google Sans",sans-serif;
+}
 .lead {
     font-size: 1.3rem;
 }
@@ -181,7 +191,6 @@ p {
 #mobile-menu-button a:hover, a:focus{
     color: #e3e3e3;
 }
-/* #e3e3e3 */
 a {
     color: #c4c7c5;
     -webkit-transition: color 0.2s linear;
@@ -627,19 +636,20 @@ a.text-danger:hover {
 }
 
 .bg-info {
-    background-color: #6ec7e0 !important;
+    background-color: #087EA4 !important;
 }
 
 .bg-success {
-    background-color: #86d9ab !important;
+    color:#1f1f1f;
+    background-color: #ffd343 !important;
 }
 
 .bg-warning {
-    background-color: #fcd27b !important;
+    background-color: #CC342D !important;
 }
 
 .bg-danger {
-    background-color: #f7765f !important;
+    background-color: #b07219 !important;
 }
 
 /* Animations */
@@ -1779,9 +1789,32 @@ textarea.form-control {
         background-position: 0 0;
     }
 }
-
+.about-me-card{
+    display: grid;
+    position: relative;
+    align-self: start;
+    grid-gap: 8px;
+    gap: 8px;
+    background-color: #28292a;
+    border-radius: 24px;
+    align-items: center;
+    padding-bottom: 5%;
+    transition-duration: 0.3s;
+}
+.about-me-card:hover{
+    transition-duration: 0.3s;
+    background-color: #085786;
+}
+.about-me-img{
+    border-radius: 24px;
+}
+.about-me-p{
+    color: #C4C7C5;
+    margin: 5% 5% 0;
+}
 .progress-bar,
 .progress-bar-primary {
+    
     background-color: #085786;
 }
 
@@ -1911,36 +1944,51 @@ textarea.form-control {
 
 .nav-tabs {
     font-weight: normal;
+    color: #C4C7C5;
+    
 }
 
 .nav-tabs .nav-link {
+    border-radius: 24px;
     color: inherit;
     border-radius: 0;
     padding: 1rem 1.5rem;
     font-size: 1.15rem;
     font-weight: 700;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
 }
 
-.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:hover{
+    color: #e3e3e3;
+}
 .nav-tabs .nav-link.active {
-    color: #222
+    color: #222;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #fff;
+    background-color: #e3e3e3;
 }
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    border-color: rgba(0, 0, 0, 0.1);
-    border-bottom-color: transparent;
+    
 }
+.tab-nav-contain{
+    background-image: url("https://lh3.googleusercontent.com/c99jeUlUnlUjl7U2J3e1V9suxZUao9TxYb93TYU4Ry9eHfg4q3em21KVFHTFcoIpvU2Ubwhs9VgHWzk6cRUnjzQSaRdkDJmZfC5ylmQoXN7ap4DSrQ=w2400-rj");
+    border-radius: 24px;
+    background-size: cover;
 
+}
 .tab-content {
+    color: #e3e3e3;
     padding: 2.5rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-top: none;
-    background-color: #fff;
+    border-bottom-left-radius: 24px;
+    
+
+
 }
 
 .tab-content p:last-child {
@@ -2149,7 +2197,6 @@ video {
     z-index: 99;
     width: 310px;
     background-color: #2d2f31;
-    /* #1f1f1f */
 }
 
 #eskimo-sidebar .eskimo-logo-link {
@@ -2412,10 +2459,9 @@ video {
 }
 
 .eskimo-social-icons {
-    margin-left: 10%;
+    margin-left: 6%;
     border-radius: 24px;
     list-style: none;
-    
     padding: 0 0 0 40px;
     display: inline-block;
     background: #085786;
@@ -2424,12 +2470,12 @@ video {
 }
 
 .eskimo-social-icons li {
-    display: inline-block;
+    justify-content: space-evenly;
     text-align: center;
     line-height: 1;
     float: left;
     margin: 0;
-    font-size: 16px;
+    font-size: 26px;
 }
 
 .eskimo-social-icons li a {
@@ -2457,17 +2503,17 @@ video {
 }
 
 .eskimo-social-icons li:hover .fa {
-    -webkit-transform: scale(1.4);
-    -ms-transform: scale(1.4);
-    -moz-transform: scale(1.4);
-    transform: scale(1.4);
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    transform: scale(1.25);
 }
 
 /* ================= PAGE STRUCTURE ================== */
 
 #eskimo-site-wrapper {
     position: relative;
-    padding-left: 310px;
+    padding-left: 19%;
     margin: 0;
     background-color: #1f1f1f;
     color: #fff
@@ -2476,20 +2522,24 @@ video {
 #eskimo-main-container {
     position: relative;
     display: block;
-    padding: 100px 95px;
+    padding-left: 10%;
+    padding-right: 10%;
     overflow-x: hidden;
 }
 
 .eskimo-page-title {
     border-radius: 24px;
+    margin-top: 1%;
     margin-bottom: 60px;
     background:#2d2f31;
-    padding:3rem 0 3rem 60px;
+    padding:3rem 0 3rem 120px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
     opacity: 0;
+    background-image: url("https://lh3.googleusercontent.com/HlbnJmSX9lPKAzw3PIgcWlotRXK1gKby51ni9mjugFHiOuDQSCNKXP6hQWW053Z_SpyIoD-J-XPCCGB03IrdCmC7NkzLQgJgNUXv10BIW99PWRZjtRI=w2400-rj");
+    background-size: cover;
 }
 
 .eskimo-page-title h1 {
@@ -2498,6 +2548,27 @@ video {
     margin: 0px;
     border-bottom: 4px solid rgba(255, 255, 255, 0.1);
     color:#e3e3e3;
+}
+.eskimo-page-title p {
+    font-size: 22px;
+}
+.contact-card-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.contact-card{
+    margin-right: 0.7%;
+    color: #e3e3e3;
+    width: 100%;
+    height: 100%;
+    padding: 3%;
+    transition: border-radius .3s cubic-bezier(.2,0,0,1),background-color .3s cubic-bezier(.2,0,0,1);
+    border-radius: 24px;
+    background: #28292a;
+    font-family: "Google Sans",sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
 }
 
 .eskimo-page-title span {
@@ -2546,9 +2617,12 @@ video {
     display: block;
     margin: 15px 0 0 0;
     font-size: 1.45rem;
-    font-family: inherit;
+    font-family:"Google Sans",sans-serif;
     font-style: italic;
     color: #c4c7c5;
+}
+.eskimo-page-subtitle p{
+    font-size: 22px;
 }
 
 .eskimo-page-title-meta {
@@ -3482,8 +3556,10 @@ p.form-submit {
 .mp-accordion {
     position: relative;
     border-top: none !important;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: #fff;
+    background-image: url("https://lh3.googleusercontent.com/BvKj8kuRZqLpqPuuZxOl4IeHv5jaD5kT1jhn3P8EMBcmzyoHRAFXsCxNH6ZeHhQG4V1F_AegXIw2cJIBmETy7eHM27IdLQe7FqEgz6NLaXflHiHM4xyh=w2400-rj");
+    border-radius: 24px;
+    background-size: cover;
+
 }
 
 .mp-accordion-title {
@@ -3491,19 +3567,18 @@ p.form-submit {
     font-weight: 700;
     display: block;
     padding: 1.5rem 2rem 0rem 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
 
 .mp-accordion-title.collapsed {
-    color: inherit;
+    color: #C4C7C5;
     padding: 1.5rem 2rem;
 }
 
 .mp-accordion-title.collapsed:hover {
-    color: #222;
+    color: #e3e3e3;
 }
 
 .mp-accordion-title span {
