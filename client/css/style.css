@@ -70,7 +70,7 @@ body {
     font-family: 'Merriweather', Georgia, serif;
     line-height: 1.88;
     font-size: 1rem;
-    background-color: #ffffff;
+    background-color: #1f1f1f;
     font-variant-ligatures: no-common-ligatures;
     width: 100%;
     height: 100%;
@@ -130,7 +130,7 @@ h6,
     margin-bottom: 2rem;
     font-weight: 700;
     line-height: 1.3;
-    color: #333333;
+    color: #2d2f31333;
 }
 
 h1,
@@ -175,9 +175,15 @@ p {
 .widget {
     font-size: 1rem;
 }
-
+#mobile-menu-button a{
+    color: #c4c7c5;
+}
+#mobile-menu-button a:hover, a:focus{
+    color: #e3e3e3;
+}
+/* #e3e3e3 */
 a {
-    color: #51cbce;
+    color: #c4c7c5;
     -webkit-transition: color 0.2s linear;
     -moz-transition: color 0.2s linear;
     transition: color 0.2s linear;
@@ -185,7 +191,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #2ba9cd;
+    color: #e3e3e3;
     text-decoration: none;
 }
 
@@ -259,7 +265,7 @@ table:not([class]) td {
 
 blockquote {
     font-style: italic;
-    border-left: 4px solid #51cbce;
+    border-left: 4px solid #085786;
     padding-left: 1.5rem;
     margin-left: -1.5rem;
     font-size: 120%;
@@ -308,7 +314,7 @@ blockquote {
     content: "";
     height: 3px;
     width: 100%;
-    background: #51cbce;
+    background: #e3e3e3;
     left: 0;
     bottom: -3px;
     position: absolute;
@@ -334,7 +340,7 @@ blockquote {
     animation: eskimo-bg-loader 1s linear infinite;
     z-index: 9999999999;
     content: "";
-    border-top-color: #333;
+    border-top-color: #2d2f31;
 }
 
 @-webkit-keyframes eskimo-bg-loader {
@@ -405,7 +411,7 @@ blockquote {
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #333;
+    background: #2d2f31;
     line-height: 50px;
     border-radius: 100%;
     padding: 0;
@@ -449,7 +455,7 @@ progress {
     appearance: none;
     border: none;
     background-color: transparent;
-    color: #51cbce;
+    color: #085786;
     z-index: 9999;
 }
 
@@ -458,11 +464,11 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-    background-color: #51cbce;
+    background-color: #085786;
 }
 
 progress::-moz-progress-bar {
-    background-color: #51cbce;
+    background-color: #085786;
 }
 
 .eskimo-progress-container {
@@ -476,7 +482,7 @@ progress::-moz-progress-bar {
 }
 
 .eskimo-progress-bar {
-    background-color: #51cbce;
+    background-color: #085786;
     width: 50%;
     display: block;
     height: inherit;
@@ -487,6 +493,7 @@ progress::-moz-progress-bar {
 .row {
     margin-right: -30px;
     margin-left: -30px;
+    color:#E3E3E3
 }
 
 .col,
@@ -565,7 +572,7 @@ progress::-moz-progress-bar {
 
 .card-title,
 .card-title a {
-    color: #333333;
+    color: #2d2f31333;
     text-decoration: none;
 }
 
@@ -584,7 +591,7 @@ a.text-light:hover {
 .text-primary,
 a.text-primary,
 a.text-primary:hover {
-    color: #51cbce !important;
+    color: #e3e3e3 !important;
 }
 
 .text-info,
@@ -680,9 +687,8 @@ input[type="button"]:not(.btn):not(.slick-arrow),
     padding: 0.5rem 18px;
     line-height: 1.75;
     cursor: pointer;
-    text-transform: uppercase;
-    background-color: #333;
-    border: 2px solid #333;
+    background-color: #2d2f31;
+    border: 2px solid #2d2f31;
     color: #FFFFFF;
     opacity: 1;
     -webkit-transition: all 150ms linear;
@@ -782,8 +788,8 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-default {
-    background-color: #333;
-    border-color: #333;
+    background-color: #2d2f31;
+    border-color: #2d2f31;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -799,8 +805,8 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-primary {
-    background-color: #51cbce;
-    border-color: #51cbce;
+    background-color: #085786;
+    border-color: #085786;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -820,7 +826,7 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-primary.btn-link {
-    color: #51cbce;
+    color: #085786;
 }
 
 .btn-primary.btn-link:hover,
@@ -1060,8 +1066,8 @@ fieldset[disabled] .btn-outline-default.active {
 }
 
 .btn-outline-primary {
-    border-color: #51cbce !important;
-    color: #51cbce;
+    border-color: #085786 !important;
+    color: #085786;
     opacity: 1;
 }
 
@@ -1070,9 +1076,9 @@ fieldset[disabled] .btn-outline-default.active {
 .btn-outline-primary:active,
 .btn-outline-primary.active,
 .open > .btn-outline-primary.dropdown-toggle {
-    background-color: #51cbce !important;
+    background-color: #085786 !important;
     color: #fff;
-    border-color: #51cbce !important;
+    border-color: #085786 !important;
 }
 
 .btn-outline-primary:hover .caret,
@@ -1112,7 +1118,7 @@ fieldset[disabled] .btn-outline-primary.focus,
 fieldset[disabled] .btn-outline-primary:active,
 fieldset[disabled] .btn-outline-primary.active {
     background-color: transparent;
-    border-color: #51cbce !important;
+    border-color: #085786 !important;
 }
 
 .btn-outline-success {
@@ -1749,7 +1755,6 @@ textarea.form-control {
     left: 0.5rem;
     top: 0rem;
     font-weight: 700;
-    text-transform: uppercase;
     line-height: 30px;
 }
 
@@ -1777,7 +1782,7 @@ textarea.form-control {
 
 .progress-bar,
 .progress-bar-primary {
-    background-color: #51cbce;
+    background-color: #085786;
 }
 
 .progress-bar-info {
@@ -1869,7 +1874,6 @@ textarea.form-control {
     color: #fff;
     font-weight: 700;
     font-size: 0.75rem;
-    text-transform: uppercase;
     display: inline-block;
     margin-bottom: 0px;
     line-height: 1;
@@ -1880,7 +1884,7 @@ textarea.form-control {
 }
 
 .badge-primary {
-    background-color: #51cbce;
+    background-color: #085786;
 }
 
 .badge-info {
@@ -1900,7 +1904,7 @@ textarea.form-control {
 }
 
 .badge-default {
-    background-color: #333;
+    background-color: #2d2f31;
 }
 
 /* ================= TABS ================== */
@@ -1959,9 +1963,9 @@ textarea.form-control {
 .pagination > .page-item > .page-link,
 .pagination > .page-item > span {
     background-color: transparent;
-    border: 2px solid #333;
+    border: 2px solid #2d2f31;
     border-radius: 20px;
-    color: #333;
+    color: #2d2f31;
     height: 40px;
     margin: 0 2px;
     min-width: 40px;
@@ -1981,15 +1985,15 @@ textarea.form-control {
 .pagination > .page-item > a:hover,
 .pagination > .page-item > a:focus,
 .pagination > .page-item > a:active {
-    background-color: #333;
-    border-color: #333;
+    background-color: #2d2f31;
+    border-color: #2d2f31;
     color: #FFFFFF;
 }
 
 .pagination > .page-item.active .page-link {
-    background-color: #333;
+    background-color: #2d2f31;
     color: #fff;
-    border-color: #333;
+    border-color: #2d2f31;
     pointer-events: none;
 }
 
@@ -2061,7 +2065,7 @@ video {
     top:0;
     right: 30px;
     z-index: 99999;
-    background:#333;
+    background:#2d2f31;
     border:1px solid rgba(255,255,255,0.05);
     border:none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -2095,7 +2099,7 @@ video {
 }
 
 .eskimo-top-icons li a span {
-    background-color: #51cbce;
+    background-color: #085786;
     line-height: 20px;
     height: 18px;
     min-width: 18px;
@@ -2144,14 +2148,15 @@ video {
     overflow: auto;
     z-index: 99;
     width: 310px;
-    background-color: #fff;
+    background-color: #2d2f31;
+    /* #1f1f1f */
 }
 
 #eskimo-sidebar .eskimo-logo-link {
     display: block;
     padding: 60px 40px;
     font-size: 3rem;
-    color: #333;
+    color: #2d2f31;
     font-weight: 700;
     line-height: 1;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -2175,7 +2180,7 @@ video {
     margin: 0;
     padding: 20px 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    font-size: 1.45rem;
+    font-size: 2.45rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -2195,7 +2200,6 @@ video {
     list-style: none;
     font-weight: 700;
     font-size: 1.1rem;
-    text-transform: uppercase;
     line-height: 1.4;
 }
 
@@ -2219,14 +2223,14 @@ video {
     display: block;
     outline: none;
     text-decoration: none;
-    color: #333;
+    color: #c4c7c5;
     padding: 0;
 }
 
 .eskimo-menu-ul li a:hover,
 .eskimo-menu-ul li a.eskimo-menu-up {
     outline: none;
-    color: #51cbce;
+    color: #e3e3e3;
 }
 
 .eskimo-menu-ul > li > ul {
@@ -2278,7 +2282,7 @@ video {
     top: 50%;
     width: 0.8em;
     height: 3px;
-    background: #ddd;
+    background: #c4c7c5;
     transform-origin: 50% 50%;
     right: 0px;
     z-index: 1;
@@ -2288,23 +2292,23 @@ video {
 }
 
 .eskimo-menu-ul > li > a:hover:after {
-    background: #51cbce;
+    background: #e3e3e3;
     transform: rotate(90deg);
 }
 
 .eskimo-menu-ul > li > a:hover:before {
-    background: #51cbce;
+    background: #c4c7c5;
     transform: rotate(180deg);
 }
 
 .eskimo-menu-ul > li > a.eskimo-menu-up:before {
     transform: rotate(-45deg);
-    background: #51cbce;
+    background: #c4c7c5;
 }
 
 .eskimo-menu-ul > li > a.eskimo-menu-up:after {
     transform: rotate(45deg);
-    background: #51cbce;
+    background: #e3e3e3;
 }
 
 .eskimo-menu-ul > li > a:not([class]):before,
@@ -2333,7 +2337,7 @@ video {
 }
 
 .eskimo-menu-ul > li > ul > li a:hover:before {
-    background: #51cbce;
+    background: #085786;
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
@@ -2408,11 +2412,13 @@ video {
 }
 
 .eskimo-social-icons {
+    margin-left: 10%;
+    border-radius: 24px;
     list-style: none;
-    margin: 0;
+    
     padding: 0 0 0 40px;
     display: inline-block;
-    background: #51cbce;
+    background: #085786;
     vertical-align: bottom;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -2463,7 +2469,8 @@ video {
     position: relative;
     padding-left: 310px;
     margin: 0;
-    background-color: #fff;
+    background-color: #1f1f1f;
+    color: #fff
 }
 
 #eskimo-main-container {
@@ -2476,7 +2483,7 @@ video {
 .eskimo-page-title {
     border-radius: 24px;
     margin-bottom: 60px;
-    background:#333;
+    background:#2d2f31;
     padding:3rem 0 3rem 60px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -webkit-transition: opacity 0.2s ease-in-out;
@@ -2489,9 +2496,8 @@ video {
     position: relative;
     display: block;
     margin: 0px;
-    text-transform: uppercase;
     border-bottom: 4px solid rgba(255, 255, 255, 0.1);
-    color:#fff;
+    color:#e3e3e3;
 }
 
 .eskimo-page-title span {
@@ -2513,7 +2519,7 @@ video {
     content: "";
     height: 4px;
     width: 100%;
-    background: #51cbce;
+    background: #085786;
     left: 0;
     bottom: -4px;
     position: absolute;
@@ -2542,13 +2548,12 @@ video {
     font-size: 1.45rem;
     font-family: inherit;
     font-style: italic;
-    color:#fff;
+    color: #c4c7c5;
 }
 
 .eskimo-page-title-meta {
-    text-transform: uppercase;
     font-weight: 700;
-    color: #333;
+    color: #2d2f31;
     display: block;
     margin-top: 15px;
 }
@@ -2562,7 +2567,7 @@ video {
 }
 
 .eskimo-page-title-meta a:hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .eskimo-author-meta:after,
@@ -2611,7 +2616,7 @@ video {
     table-layout: fixed;
     height: 100%;
     margin-top: 60px;
-    background:#333;
+    background:#2d2f31;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -2656,7 +2661,7 @@ video {
 }
 
 .eskimo-post-nav-link a:hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .eskimo-post-nav-table > .eskimo-post-nav {
@@ -2665,7 +2670,7 @@ video {
     vertical-align: middle;
     width: 50px;
     padding: 0px;
-    background-color: #333;
+    background-color: #2d2f31;
     text-align: center;
     color: #fff;
     -webkit-transition: all 0.2s ease-in-out;
@@ -2771,7 +2776,6 @@ video {
     background: transparent;
     border-top-color: rgba(0, 0, 0, 0.1);
     font-size: 0.8rem;
-    text-transform: uppercase;
     line-height: 1.4;
 }
 
@@ -2792,7 +2796,7 @@ video {
 }
 
 .card .card-footer a:hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .card .card-footer div {
@@ -2801,10 +2805,9 @@ video {
 
 .card-category {
     font-size: 0.875rem;
-    text-transform: uppercase;
     font-weight: 700;
     line-height: 1.5;
-    color: #51cbce;
+    color: #085786;
 }
 
 .card.card-horizontal {
@@ -2877,7 +2880,6 @@ video {
     display: block;
     margin-top: 2.25rem;
     font-size: 0.8rem;
-    text-transform: uppercase;
     line-height: 1;
 }
 
@@ -2898,7 +2900,7 @@ video {
 }
 
 .card-horizontal-meta a:hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .card-small .card-title {
@@ -3039,7 +3041,6 @@ video {
     background: #f5593d;
     padding: 5px 10px;
     font-size: 50%;
-    text-transform: uppercase;
     -webkit-transition: background 0.15s ease-in-out;
     transition: background 0.15s ease-in-out;
 }
@@ -3127,7 +3128,7 @@ p.form-submit {
 }
 
 .eskimo-widget a:not(.btn):hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .eskimo-widget:last-child {
@@ -3145,7 +3146,7 @@ p.form-submit {
 
 .eskimo-recent-entries ul li a:hover,
 .eskimo-categories ul li a:hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .eskimo-recent-entries ul,
@@ -3268,7 +3269,7 @@ p.form-submit {
 
 .eskimo-tag-cloud a:hover {
     text-decoration: none;
-    color: #51cbce;
+    color: #085786;
 }
 
 .eskimo-tag-cloud a span {
@@ -3284,7 +3285,6 @@ p.form-submit {
 #eskimo-footer {
     position: relative;
     padding: 0 95px;
-    background: #fafafa;
 }
 
 .eskimo-footer-wrapper {
@@ -3326,7 +3326,7 @@ p.form-submit {
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #333;
+    background: #2d2f31;
     color: #fff;
     line-height: 50px;
     padding: 0;
@@ -3384,7 +3384,6 @@ p.form-submit {
 .eskimo-author-subtitle {
     margin-top: -1.75rem;
     font-weight: 700;
-    text-transform: uppercase;
     margin-bottom: 1.25rem;
     line-height: 1.4;
 }
@@ -3462,7 +3461,7 @@ p.form-submit {
 }
 
 .eskimo-post-list a:hover {
-    color: #51cbce;
+    color: #085786;
 }
 
 .eskimo-post-list-info .fa,
@@ -3550,11 +3549,11 @@ p.form-submit {
     right: 0px;
     z-index: 9;
     padding-right: 60px;
-    background-color: #333;
+    background-color: #2d2f31;
 }
 
 .eskimo-carousel-view-more a {
-    background-color: #333;
+    background-color: #2d2f31;
     color: #fff;
     line-height: 30px;
     display: inline-block;
@@ -3645,13 +3644,13 @@ p.form-submit {
     cursor: pointer;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    color: #333 !important;
+    color: #2d2f31 !important;
 }
 
 .eskimo-carousel .slick-prev,
 .eskimo-carousel .slick-next {
     top: 15px;
-    background-color: #333;
+    background-color: #2d2f31;
     width: 30px;
     height: 30px;
     border-radius: 0px !important;
@@ -3701,7 +3700,7 @@ p.form-submit {
     animation: eskimo-bg-loader 1s linear infinite;
     z-index: 9999999999;
     content: "";
-    border-top-color: #333;
+    border-top-color: #2d2f31;
 }
 
 @-webkit-keyframes eskimo-bg-loader {
@@ -3822,7 +3821,7 @@ p.form-submit {
 .eskimo-slider .slick-next {
     top: 20px;
     color: #fff;
-    background-color: #333;
+    background-color: #2d2f31;
     width: 46px;
     height: 46px;
     border-radius: 0px !important;

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Eskimo - HTML Template</title>
+    <!-- META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- CSS FILES -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- READING POSITION INDICATOR -->
+    <progress value="0" id="eskimo-progress-bar">
+        <span class="eskimo-progress-container">
+            <span class="eskimo-progress-bar"></span>
+        </span>
+    </progress>
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container">
+            <div class="container">
+                <!-- SIDEBAR -->
+                <div id="eskimo-sidebar">
+                    <div id="eskimo-sidebar-wrapper" class="d-flex align-items-start flex-column h-100 w-100">
+                        <!-- LOGO -->
+                        <div class="eskimo-author-img">
+                            <img src="images/headshot.png" alt="JOHN DOE" />
+                        </div>
+                        <!-- MENU CONTAINER -->
+                        <div id="eskimo-sidebar-cell" class="w-100">
+                            <!-- MOBILE MENU BUTTON -->
+                            <div id="eskimo-menu-toggle"><a id="mobile-menu-button" href="#"><i class="fa fa-home"></i></a></div>
+                            <!-- MENU -->
+                            <nav id="eskimo-main-menu" class="menu-main-menu-container">
+                                <ul class="eskimo-menu-ul">
+                                    <!-- <li><a href="#">Portfolio</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="index.html">About</a></li>
+                                            <li><a href="index3.html">Projects</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Content</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog-2-column.html">Blog</a></li>
+                                            <li><a href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx">Spotify <i class="fa fa-spotify"></i></a></li>
+                                            <li><a href="blog-3-column.html">3 Column</a></li>
+                                            <li><a href="single-post.html">Single Post</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- <li><a href="blog-2-column.html">Blog</a></li> -->
+                                    <li><a href="index.html">About</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="other-features.html">Other Features</a></li>
+                                    <li><a href="other-features.html">Other Features</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                         <!-- SOCIAL MEDIA ICONS -->
+                         <div id="eskimo-social-cell" class="mt-auto w-100">
+                            <div id="eskimo-social-inner">
+                                <ul class="eskimo-social-icons">
+                                    <li><a href="https://www.linkedin.com/in/nathan-foss/"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://github.com/DosLlamas"><i class="fa fa-github"></i></a></li>
+                                    <li><a href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"><i class="fa fa-spotify"></i></a></li>
+                                    <li><a href="https://media.licdn.com/dms/document/media/D562DAQFYJ4dBApcQfg/profile-treasury-document-pdf-analyzed/0/1683911239830?e=1685577600&v=beta&t=x3DBX03eb9X0MRcGGgdVwhbCCJojuW7JtctKEAc8NII"><i class="fa fa-cloud-download">Résumé</i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TOP ICONS -->
+                <ul class="eskimo-top-icons">
+                    <li id="eskimo-search-icon">
+                        <a id="eskimo-open-search" href="#"><i class="fa fa-search"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <!-- BLOG POSTS -->
+                    <div class="col-12 col-lg-7">
+                        <div class="eskimo-masonry-grid">
+                            <div class="eskimo-one-column" data-columns>
+                                <!-- POST 1 -->
+                                <div class="card-masonry">
+                                    <div class="card">
+                                        <a href="single-post.html">
+                                            <img class="card-vertical-img" src="images/900x600.png" alt="Ketchup Flavored Ice Cream!" />   
+                                        </a>
+                                        <div class="card-border">
+                                            <div class="card-body">
+                                                <div class="card-category">
+                                                    <span><a href="category.html">Food &amp; Drink</a></span>
+                                                </div>
+                                                <h3 class="card-title">
+                                                    <a href="single-post.html">Ketchup Flavored Ice Cream!</a>
+                                                </h3>
+                                                <p>Mandaremus illum possumus ullamco e qui de nisi enim anim. Si nulla si nisi, veniam litteris sed excepteur ne ut amet deserunt tempor nam expetendis de enim mandaremus. Ita ea minim esse cillum ut eram arbitror ullamco. Tamen ad expetendis ab ipsum proident...</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="eskimo-author-meta">
+                                                    By <a class="author-meta" href="author.html">Egemenerd</a>
+                                                </div>
+                                                <div class="eskimo-date-meta">
+                                                    <a href="single-post.html">May 28, 2018</a>
+                                                </div>
+                                                <div class="eskimo-reading-meta">3 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- POST 2 -->
+                                <div class="card-masonry">
+                                    <div class="card">
+                                        <a href="single-post.html">
+                                            <img class="card-vertical-img" src="images/900x600.png" alt="Hair You've Always Dreamed Of" />   
+                                        </a>
+                                        <div class="card-border">
+                                            <div class="card-body">
+                                                <div class="card-category">
+                                                    <span><a href="category.html">Lifestyle</a></span>
+                                                </div>
+                                                <h3 class="card-title">
+                                                    <a href="single-post.html">Hair You've Always Dreamed Of</a>
+                                                </h3>
+                                                <p>Ex si esse deserunt, et dolore occaecat, singulis tamen e possumus voluptatibus, varias cernantur si aute quid. Noster vidisse iis exquisitaque, deserunt te irure. Ubi illum nostrud fidelissimae id occaecat duis probant. Occaecat hic quorum aliquip se...</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="eskimo-author-meta">
+                                                    By <a class="author-meta" href="author.html">Egemenerd</a>
+                                                </div>
+                                                <div class="eskimo-date-meta">
+                                                    <a href="single-post.html">May 27, 2018</a>
+                                                </div>
+                                                <div class="eskimo-reading-meta">3 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- POST 3 -->
+                                <div class="card-masonry">
+                                    <div class="card">
+                                        <a href="single-post.html">
+                                            <img class="card-vertical-img" src="images/900x600.png" alt="15 Of The World's Best Carnivals" />   
+                                        </a>
+                                        <div class="card-border">
+                                            <div class="card-body">
+                                                <div class="card-category">
+                                                    <span><a href="category.html">Lifestyle</a>, <a href="category.html">Travel</a></span>
+                                                </div>
+                                                <h3 class="card-title">
+                                                    <a href="single-post.html">15 Of The World's Best Carnivals</a>
+                                                </h3>
+                                                <p>Aliquip e duis. Se labore ullamco excepteur iis ullamco sint duis laboris amet sed ita occaecat de cernantur quo fore coniunctione voluptate enim senserit. Si ut nulla laboris, an eiusmod e incididunt. Non varias enim duis singulis, a quorum cupidatat. Voluptate summis...</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="eskimo-author-meta">
+                                                    By <a class="author-meta" href="author.html">Egemenerd</a>
+                                                </div>
+                                                <div class="eskimo-date-meta">
+                                                    <a href="single-post.html">May 25, 2018</a>
+                                                </div>
+                                                <div class="eskimo-reading-meta">2 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SIDEBAR -->
+                    <div class="col-12 col-lg-5">
+                        <!-- CATEGORIES -->
+                        <div class="eskimo-categories eskimo-widget">
+                            <ul>
+                                <li>
+                                    <a href="category.html" title="The best restaurants, cafes, bars and shops in town.">All</a> <span class="badge badge-pill badge-default">5</span>
+                                </li>
+                                <li>
+                                    <a href="category.html" title="An up-to-date, personal urban guide.">Python</a> <span class="badge badge-pill badge-default">5</span>
+                                </li>
+                                <li>
+                                    <a href="category.html" title="The latest news about movies and TV shows.">Django</a> <span class="badge badge-pill badge-default">4</span>
+                                </li>
+                                <li>
+                                    <a href="category.html" title="Latest technology news and updates.">React</a> <span class="badge badge-pill badge-default">4</span>
+                                </li>
+                                <li>
+                                    <a href="category.html" title="Travel advice, information and inspiration.">React Native</a> <span class="badge badge-pill badge-default">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- FOOTER -->
+        <footer id="eskimo-footer">
+            <div class="container">
+                <!-- CREDITS -->
+                <div class="eskimo-footer-credits">
+                    <p>
+                        Made with love by <a href="https://themeforest.net/user/egemenerd" target="_blank">Egemenerd</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- GO TO TOP BUTTON -->
+    <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+    <!-- FULLSCREEN SEARCH -->
+    <div id="eskimo-fullscreen-search">
+        <div id="eskimo-fullscreen-search-content">
+            <a href="#" id="eskimo-close-search"><i class="fa fa-times"></i></a>
+            <form role="search" method="get" action="search.html" class="eskimo-lg-form">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-lg" placeholder="Enter a keyword..." name="s" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- JS FILES -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/salvattore.min.js"></script>
+    <script src="js/panel.js"></script>
+    <script src="js/reading-position-indicator.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
