@@ -2570,6 +2570,9 @@ video {
     font-weight: 500;
     line-height: 24px;
 }
+.contact-card:hover{
+    background: #085786;
+}
 
 .eskimo-page-title span {
     display: inline-block;
