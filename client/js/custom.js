@@ -22,7 +22,7 @@
     /* GO TO TOP BUTTON */
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 300) {
-            $("#eskimo-gototop").css('bottom', 0);
+            $("#eskimo-gototop").css('bottom', 20);
         } else {
             $("#eskimo-gototop").css('bottom', '-50px');
         }

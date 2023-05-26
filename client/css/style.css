@@ -126,7 +126,7 @@ h6,
 .h5,
 .h6,
 .card-title {
-    font-family: "font";
+    font-family:"Google Sans",sans-serif;
     margin-bottom: 2rem;
     font-weight: 700;
     line-height: 1.3;
@@ -148,7 +148,8 @@ h2 {
     font-size: 45px;
     line-height: 52px;
     font-weight: 475;
-    font-family: "Google Sans",sans-serif;
+    font-family: "Google Sans", sans-serif;
+    font-variation-settings: "GRAD" 0,"opsz" 18;
 }
 
 h3,
@@ -388,7 +389,7 @@ blockquote {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(250, 250, 250, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 99999999999;
 }
 
@@ -1490,258 +1491,6 @@ fieldset[disabled] .btn-outline-danger.active {
     padding: 2rem 2.5rem;
 }
 
-/* ================= FORMS ================== */
-
-.form-row {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.form-control::-moz-placeholder {
-    color: #d2d2d2;
-    opacity: 1;
-}
-
-.form-control:-moz-placeholder {
-    color: #d2d2d2;
-    opacity: 1;
-}
-
-.form-control::-webkit-input-placeholder {
-    color: #d2d2d2;
-    opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
-    color: #d2d2d2;
-    opacity: 1;
-}
-
-input[type="text"]:not(.form-control),
-input[type="email"]:not(.form-control),
-input[type="number"]:not(.form-control),
-input[type="date"]:not(.form-control),
-input[type="password"]:not(.form-control),
-input[type="url"]:not(.form-control),
-input[type="tel"]:not(.form-control),
-textarea,
-.form-control {
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0px;
-    color: inherit;
-    font-size: 0.875rem;
-    padding: 12px 15px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    display: block;
-    width: 100%;
-    -webkit-transition: border 0.2s ease-in-out;
-    -moz-transition: border 0.2s ease-in-out;
-    transition: border 0.2s ease-in-out;
-}
-
-.form-control.form-control-sm {
-    padding: 7px 10px;
-}
-
-.form-control.form-control-lg {
-    padding: 20px 24px;
-    font-size: 1.2rem;
-}
-
-.eskimo-lg-form button {
-    font-size: 1.2rem;
-    min-width: 100px;
-}
-
-input[type="text"]:not(.form-control):focus,
-input[type="email"]:not(.form-control):focus,
-input[type="number"]:not(.form-control):focus,
-input[type="date"]:not(.form-control):focus,
-input[type="password"]:not(.form-control):focus,
-input[type="url"]:not(.form-control):focus,
-input[type="tel"]:not(.form-control):focus,
-textarea:not(.form-control):focus,
-.form-control:focus {
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    outline: 0 !important;
-}
-
-.form-control.no-border {
-    border: medium none !important;
-}
-
-.has-success .form-control,
-.has-error .form-control,
-.has-success .form-control:focus,
-.has-error .form-control:focus {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.has-success .form-control {
-    border: 1px solid #ccc;
-    color: #66615b;
-}
-
-.has-success .form-control:focus {
-    border: 1px solid #6bd098;
-    color: #6bd098;
-}
-
-.has-danger .form-control {
-    background-color: #FFC0A4;
-    border: 1px solid #f5593d;
-    color: #f5593d;
-}
-
-.has-danger .form-control:focus {
-    background-color: #FFFFFF;
-    border: 1px solid #f5593d;
-}
-
-.input-group.input-group-focus .input-group-addon {
-    border-color: #9A9A9A;
-}
-
-.input-lg {
-    height: 55px;
-    padding: 11px 30px;
-}
-
-.has-error .form-control-feedback,
-.has-error .control-label {
-    color: #f5593d;
-}
-
-.has-success .form-control-feedback,
-.has-success .control-label {
-    color: #6bd098;
-}
-
-.input-group-addon {
-    background-color: #FFFFFF;
-    border-radius: 4px;
-}
-
-.input-group-addon.no-border {
-    border: medium none !important;
-}
-
-.has-success .input-group-addon,
-.has-error .input-group-addon {
-    background-color: #FFFFFF;
-}
-
-.has-error .form-control:focus + .input-group-addon {
-    color: #f5593d;
-}
-
-.has-success .form-control:focus + .input-group-addon {
-    color: #6bd098;
-}
-
-.form-control:focus + .input-group-addon,
-.form-control:focus ~ .input-group-addon {
-    background-color: #FFFFFF;
-}
-
-.input-group .form-control:first-child,
-.input-group-addon:first-child,
-.input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
-    border-right: 0 none;
-    padding-right: 0;
-}
-
-.input-group .form-control:last-child,
-.input-group-addon:last-child,
-.input-group-btn:last-child > .dropdown-toggle,
-.input-group-btn:first-child > .btn:not(:first-child) {
-    border-left: 0 none;
-}
-
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
-    background-color: #E3E3E3;
-    color: #66615B;
-    cursor: not-allowed;
-}
-
-.input-group[disabled] .input-group-addon {
-    background-color: #E3E3E3;
-    cursor: not-allowed;
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
-.input-group-btn .btn {
-    border-width: 1px;
-    padding: 9px 18px;
-}
-
-.input-group-btn .btn-default:not(.btn-fill) {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
-.input-group-btn:last-child > .btn {
-    margin-left: 0;
-}
-
-textarea.form-control {
-    padding: 10px 18px;
-    height: auto;
-}
-
-.form-group {
-    position: relative;
-}
-
-.form-group-no-border .form-control,
-.form-group-no-border .input-group-addon {
-    border: 0 !important;
-}
-
-.has-success .form-control.form-control-success {
-    padding-right: 2.5em;
-}
-
-.has-danger .form-control.form-control-danger {
-    padding-right: 2.5em;
-}
-
-.form-control.form-fixed-height {
-    height: 195px;
-}
-
-.ajax-success,
-.ajax-error {
-    padding: 20px;
-    margin: 40px 0px 0px 0px;
-    display: block;
-    width: 100%;
-}
-
-.ajax-success,
-.ajax-error {
-    background-color: #efefef;
-}
-
-.ajax-success {
-    border-left: 3px solid #6bd098;
-}
-
-.ajax-error {
-    border-left: 3px solid #f5593d;
-}
-
-#ajax-form {
-    margin-bottom:-2rem;
-}
 
 /* ================= PROGRESS BARS ================== */
 
@@ -2107,13 +1856,14 @@ video {
 
 .eskimo-top-icons {
     list-style: none;
-    margin: 0;
+    margin-top: 2%;
     padding: 0;
     position: fixed;
     top:0;
     right: 30px;
     z-index: 99999;
     background:#2d2f31;
+    border-radius: 50%;
     border:1px solid rgba(255,255,255,0.05);
     border:none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -2391,65 +2141,6 @@ video {
     -moz-transform: scale(1.2);
 }
 
-/* ================= SLIDING PANEL ================== */
-
-.overflow-hidden {
-    overflow: hidden;
-}
-
-.eskimo-panel {
-    display: none;
-    max-width: 100%;
-    overflow-y: auto;
-    width: 480px;
-    background-color: #fff;
-    -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
-    box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
-}
-
-.eskimo-panel-inner {
-    position: relative;
-    padding: 80px 60px;
-    min-height: 100%;
-}
-
-#eskimo-overlay {
-    position: fixed;
-    z-index: 999999999;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    display: none;
-    overflow: hidden !important;
-    background: rgba(250, 250, 250, 0.9);
-}
-
-.eskimo-panel-inner .eskimo-panel-close {
-    position: absolute;
-    top: 0px;
-    right: 60px;
-    font-size: 20px;
-    line-height: 1;
-    color: #fff;
-    background: #f5593d;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    -webkit-transition: background 0.2s ease-in-out;
-    -moz-transition: background 0.2s ease-in-out;
-    transition: background 0.2s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.eskimo-panel-inner .eskimo-panel-close:hover {
-    background: #f33816;
-    color: #fff;
-}
-
 /* ================= SOCIAL ICONS ================== */
 
 #eskimo-social-inner {
@@ -2558,7 +2249,7 @@ video {
 }
 .contact-card{
     margin-right: 0.7%;
-    color: #e3e3e3;
+    color: #c4c7c5;
     width: 100%;
     height: 100%;
     padding: 3%;
@@ -2571,7 +2262,12 @@ video {
     line-height: 24px;
 }
 .contact-card:hover{
+    transition: all 0.2s ease-in-out;
     background: #085786;
+
+}
+.contact-card i:hover{
+    color: #e3e3e3;
 }
 
 .eskimo-page-title span {
@@ -3395,9 +3091,9 @@ p.form-submit {
 }
 
 #eskimo-gototop {
+    border-radius: 50%;
     position: fixed;
     right: 30px;
-    bottom: -50px;
     z-index: 100;
     display: block;
     width: 50px;

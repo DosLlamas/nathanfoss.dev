@@ -14,6 +14,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/fontawesome.css" rel="stylesheet" type="text/css" />
     <link href="css/featherlight.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="./images/nf-logo2.jpg">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
 
@@ -50,24 +51,33 @@
                 <!-- MENU -->
                 <nav id="eskimo-main-menu" class="menu-main-menu-container">
                   <ul class="eskimo-menu-ul">
-                    <!-- <li><a href="#">Portfolio</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">About</a></li>
-                                            <li><a href="index3.html">Projects</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Content</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog-2-column.html">Blog</a></li>
-                                            <li><a href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx">Spotify <i class="fa fa-spotify"></i></a></li>
-                                            <li><a href="blog-3-column.html">3 Column</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                        </ul>
-                                    </li> -->
-                    <!-- <li><a href="blog-2-column.html">Blog</a></li> -->
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="blog.html">Blog | Content</a></li>
+                    <li>
+                      <a href="#">Portfolio</a>
+                      <!-- 
+                        For now, I have multiple html files but once I start implementing 
+                        more features I will delete everything except for index.html and use
+                        React to generate more views. I'll take inspiration from the other html files 
+                        though so it looks nice. I may actually remake this entire index.html as it's own
+                        separate component in React, then make the index file a blank file like normal
+                      -->
+                      <ul class="sub-menu">
+                        <li><a href="index.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">Content</a>
+                      <ul class="sub-menu">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="single-post.html">Single Post</a></li>
+                        <li>
+                          <a
+                            href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
+                            >My Podcast <i class="fa fa-spotify"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </li>
                     <li><a href="other-features.html">Other Features</a></li>
                   </ul>
                 </nav>
@@ -115,19 +125,20 @@
               applications.
             </p>
             <div class="contact-card-wrapper">
-                <div class="contact-card">
-                  <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=nathanfoss.dev@gmail.com
-                  "
-                    ><i class="fa fa-envelope"> Email</i></a
-                  >
-                </div>
-                <div class="contact-card">
-                  <a
-                    href="https://media.licdn.com/dms/document/media/D562DAQFYJ4dBApcQfg/profile-treasury-document-pdf-analyzed/0/1683911239830?e=1685577600&v=beta&t=x3DBX03eb9X0MRcGGgdVwhbCCJojuW7JtctKEAc8NII"
-                    ><i class="fa fa-cloud-download"> Résumé</i></a
-                  >
-                </div>
-
+              <div
+                class="contact-card"
+                style="cursor: pointer"
+                onclick="window.location='https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=nathanfoss.dev@gmail.com'"
+              >
+                <i class="fa fa-envelope"> Email</i>
+              </div>
+              <div
+                class="contact-card"
+                style="cursor: pointer"
+                onclick="window.location='./images/assets/NathanFossSoftwareEngineer.pdf'"
+              >
+                <i class="fa fa-cloud-download"> Résumé</i>
+              </div>
             </div>
           </div>
           <!-- ABOUT ME -->
@@ -213,7 +224,7 @@
           <br />
           <br />
           <!-- TABS -->
-          <h2>Education and experience</h2>
+          <h2>Experience & education</h2>
           <!-- ACCORDION -->
           <div
             id="mp-accordion-1"
@@ -460,14 +471,35 @@
       <!-- FOOTER -->
       <footer id="eskimo-footer">
         <div _ngcontent-ros-c18 class="squiggle">
-            <svg _ngcontent-ros-c18 aria-hidden="true" width="100%" height="8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <pattern _ngcontent-ros-c18 id="a" width="91" height="8" patternUnits="userSpaceOnUse">
-                    <g _ngcontent-ros-c18 clip-path="url(#clip0_2426_11367)">
-                        <path _ngcontent-ros-c18 d="M114 4c-5.067 4.667-10.133 4.667-15.2 0S88.667-.667 83.6 4 73.467 8.667 68.4 4 58.267-.667 53.2 4 43.067 8.667 38 4 27.867-.667 22.8 4 12.667 8.667 7.6 4-2.533-.667-7.6 4s-10.133 4.667-15.2 0S-32.933-.667-38 4s-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0" stroke="#E1E3E1" stroke-linecap="square"></path>
-                    </g>
-                </pattern>
-                <rect _ngcontent-ros-c18 width="100%" height="100%" fill="url(#a)"></rect>
-            </svg>
+          <svg
+            _ngcontent-ros-c18
+            aria-hidden="true"
+            width="100%"
+            height="8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <pattern
+              _ngcontent-ros-c18
+              id="a"
+              width="91"
+              height="8"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                _ngcontent-ros-c18
+                d="M114 4c-5.067 4.667-10.133 4.667-15.2 0S88.667-.667 83.6 4 73.467 8.667 68.4 4 58.267-.667 53.2 4 43.067 8.667 38 4 27.867-.667 22.8 4 12.667 8.667 7.6 4-2.533-.667-7.6 4s-10.133 4.667-15.2 0S-32.933-.667-38 4s-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0"
+                stroke="#E1E3E1"
+                stroke-linecap="square"
+              ></path>
+            </pattern>
+            <rect
+              _ngcontent-ros-c18
+              width="100%"
+              height="100%"
+              fill="url(#a)"
+            ></rect>
+          </svg>
         </div>
         <div class="container">
           <!-- CREDITS -->
