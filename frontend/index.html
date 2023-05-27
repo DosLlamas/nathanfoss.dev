@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Nathan Foss | Software Engineer</title>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- CSS FILES -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/fontawesome.css" rel="stylesheet" type="text/css" />
+    <link href="css/featherlight.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="./images/nf-logo2.jpg" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- READING POSITION INDICATOR -->
+    <progress value="0" id="eskimo-progress-bar">
+      <span class="eskimo-progress-container">
+        <span class="eskimo-progress-bar"></span>
+      </span>
+    </progress>
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+      <!-- MAIN CONTAINER -->
+      <main id="eskimo-main-container">
+        <div class="container">
+          <!-- SIDEBAR -->
+          <div id="eskimo-sidebar">
+            <div
+              id="eskimo-sidebar-wrapper"
+              class="d-flex align-items-start flex-column h-100 w-100"
+            >
+              <!-- LOGO -->
+              <div class="eskimo-author-img">
+                <img src="images/headshot.png" alt="Nathan Foss headshot" />
+              </div>
+              <!-- MENU CONTAINER -->
+              <div id="eskimo-sidebar-cell" class="w-100">
+                <!-- MOBILE MENU BUTTON -->
+                <div id="eskimo-menu-toggle">
+                  <a id="mobile-menu-button" href="#"
+                    ><img class="nf-logo-img" src="./images/nf-logo.jpg" alt="Nathan Foss logo"
+                  /></a>
+                </div>
+                <!-- MENU -->
+                <!-- 
+                  For now, I have multiple html files but once I start implementing 
+                  more features I will delete everything except for index.html and use
+                  React for a single page application. I'll take inspiration from the other html files 
+                  though so it looks nice. I may actually remake this entire index.html as it's own
+                  separate component in React, then make the index file a blank file like normal.
+                  Maybe I'll add an animation on this screen saying Hi, I'm Nathan or waving.
+                -->
+                <nav id="eskimo-main-menu" class="menu-main-menu-container">
+                  <ul class="eskimo-menu-ul">
+                    <!-- <li>
+                      <a href="#">Portfolio</a>
+                      <ul class="sub-menu">
+                        <li><a href="index.html"><i class="fa fa-home"></i
+                          > About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">My Content</a>
+                      <ul class="sub-menu">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li>
+                          <a
+                            href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
+                            >Leetcode tutorials <i class="fa fa-youtube-play"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
+                            >Podcast <i class="fa fa-spotify"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="other-features.html">Other Features</a></li> -->
+                    <li>
+                      <a style="font-size: 22px" href="index.html"
+                        ><i class="fa fa-home"></i> About</a
+                      >
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="projects.html"
+                        >Projects</a
+                      >
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="other-features.html"
+                        >Leetcode tutorials <i class="fa fa-youtube-play"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        style="font-size: 22px"
+                        href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
+                        >Podcast <i class="fa fa-spotify"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="other-features.html"
+                        >Other Features</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- SOCIAL MEDIA ICONS -->
+              <div id="eskimo-social-cell" class="mt-auto w-100">
+                <div id="eskimo-social-inner">
+                  <ul class="eskimo-social-icons">
+                    <li>
+                      <a href="https://www.linkedin.com/in/nathan-foss/"
+                        ><i class="fa fa-linkedin"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/DosLlamas"
+                        ><i class="fa fa-github"></i
+                      ></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- TOP ICONS -->
+          <ul class="eskimo-top-icons">
+            <li id="eskimo-search-icon">
+              <a id="eskimo-open-search" href="#"
+                ><i class="fa fa-search"></i
+              ></a>
+            </li>
+          </ul>
+          <!-- PAGE TITLE -->
+          <div class="eskimo-page-title">
+            <h1 style="font-size: 88px"><span>Nathan Foss</span></h1>
+            <p>
+              Junior Software Engineer | React | JavaScript, HTML/CSS | Python |
+              Java | Ruby
+            </p>
+            <p>
+              I'm a Software Engineer with a passion for social impact and
+              technology. I teach web development to highschoolers and teens at
+              the non-profit Code2College so students can build websites for
+              clients and create their own project portfolio. As a Software
+              Engineer, I develop applications and curriculum at Coding for
+              Hermit Crabs where we teach homeless youth to program. I mainly
+              work with React, Ruby on Rails and SQL to develop web and phone
+              applications.
+            </p>
+            <div class="contact-card-wrapper">
+              <div
+                class="contact-card"
+                style="cursor: pointer"
+                onclick="window.location='https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=nathanfoss.dev@gmail.com'"
+              >
+                <i class="fa fa-envelope"> Email</i>
+              </div>
+              <div
+                class="contact-card"
+                style="cursor: pointer"
+                onclick="window.location='./images/assets/NathanFossSoftwareEngineer.pdf'"
+              >
+                <i class="fa fa-cloud-download"> Résumé</i>
+              </div>
+            </div>
+          </div>
+          <!-- ABOUT ME -->
+          <div class="about-me-card">
+            <img
+              class="about-me-img"
+              src="images/Hackathon-56.jpg"
+              alt="Code2College black history month hackathon Feb, 2023"
+              class="img-fluid mx-auto d-block eskimo-img-shadow"
+            />
+            <p class="about-me-p">
+              I actually love to learn languages - spoken language and coding.
+              Before graduating from Flatiron School's Software Engineering
+              Bootcamp, I taught myself Spanish with books, videos, talking with
+              friends, teaching, traveling, or just going out of my way to speak
+              with someone in Spanish. At first I didn't understand anything -
+              it felt so far away. But I kept going, stumbling and falling
+              towards what I didn't know and asking myself what I'm missing. But
+              I would always get back up. Days, months and years past then
+              suddenly I couldn't not understand everything even if I didn't
+              want to. That's when I realized I was fluent. With coding I took
+              the same approach: Self initiative and obsession. I now focus on
+              building apps and making tech-related podcasts that impact others
+              from negative to positive. I continue to read programming books,
+              watch videos, talk with software engineer friends, teach, and
+              travel to Hackathons or events - places where people like me are.
+            </p>
+            <p class="about-me-p">
+              I'm currently pursuing roles in Frontend, or Full Stack
+              Software/Web Development.
+            </p>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-info"
+              style="width: 85%"
+              role="progressbar"
+              aria-valuenow="85"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <span>React.JS</span> 85%
+            </div>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-success"
+              style="width: 80%"
+              role="progressbar"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <span>Python</span> 80%
+            </div>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-danger"
+              style="width: 70%"
+              role="progressbar"
+              aria-valuenow="50"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <span>Java</span> 70%
+            </div>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-warning"
+              style="width: 78%"
+              role="progressbar"
+              aria-valuenow="65"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <span>Ruby</span> 78%
+            </div>
+          </div>
+          <!-- DIVIDER -->
+          <br />
+          <br />
+          <br />
+          <!-- TABS -->
+          <h2>Experience & education</h2>
+          <!-- ACCORDION -->
+          <div
+            id="mp-accordion-1"
+            data-children=".mp-accordion-item"
+            class="mp-accordion"
+          >
+            <!-- ACCORDION ITEM 1 -->
+            <div class="mp-accordion-item">
+              <a
+                class="mp-accordion-title"
+                data-toggle="collapse"
+                data-parent="#mp-accordion-1"
+                href="#mp-accordion-item-1"
+                aria-expanded="false"
+                aria-controls="mp-accordion-item-1"
+                >2014 to Present</a
+              >
+              <div
+                id="mp-accordion-item-1"
+                class="collapse show"
+                role="tabpanel"
+              >
+                <div class="mp-accordion-content">
+                  <h5>Senior Developer - Google Inc</h5>
+                  Senserit sed commodo. Ubi nescius a iudicem, non veniam si
+                  amet a tempor ad fabulas id ipsum excepteur relinqueret non
+                  fore commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat. Excepteur ea
+                  probant, expetendis quid proident sed nostrud.
+                </div>
+              </div>
+            </div>
+            <!-- ACCORDION ITEM 2 -->
+            <div class="mp-accordion-item">
+              <a
+                class="mp-accordion-title collapsed"
+                data-toggle="collapse"
+                data-parent="#mp-accordion-1"
+                href="#mp-accordion-item-2"
+                aria-expanded="false"
+                aria-controls="mp-accordion-item-2"
+                >2014 - 2010</a
+              >
+              <div id="mp-accordion-item-2" class="collapse" role="tabpanel">
+                <div class="mp-accordion-content">
+                  <h5>Art Director - Designs Ltd</h5>
+                  Senserit sed commodo. Ubi nescius a iudicem, non veniam si
+                  amet a tempor ad fabulas id ipsum excepteur relinqueret non
+                  fore commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat. Excepteur ea
+                  probant, expetendis quid proident sed nostrud.
+                </div>
+              </div>
+            </div>
+            <!-- ACCORDION ITEM 3 -->
+            <div class="mp-accordion-item">
+              <a
+                class="mp-accordion-title collapsed"
+                data-toggle="collapse"
+                data-parent="#mp-accordion-1"
+                href="#mp-accordion-item-3"
+                aria-expanded="false"
+                aria-controls="mp-accordion-item-3"
+                >2010 - 2008</a
+              >
+              <div id="mp-accordion-item-3" class="collapse" role="tabpanel">
+                <div class="mp-accordion-content">
+                  <h5>Web Designer - Freelance</h5>
+                  Senserit sed commodo. Ubi nescius a iudicem, non veniam si
+                  amet a tempor ad fabulas id ipsum excepteur relinqueret non
+                  fore commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat. Excepteur ea
+                  probant, expetendis quid proident sed nostrud.
+                </div>
+              </div>
+            </div>
+            <!-- ACCORDION ITEM 4 -->
+            <div class="mp-accordion-item">
+              <a
+                class="mp-accordion-title collapsed"
+                data-toggle="collapse"
+                data-parent="#mp-accordion-1"
+                href="#mp-accordion-item-4"
+                aria-expanded="false"
+                aria-controls="mp-accordion-item-4"
+                >2008 - 2004</a
+              >
+              <div id="mp-accordion-item-4" class="collapse" role="tabpanel">
+                <div class="mp-accordion-content">
+                  <h5>University - Cambridge</h5>
+                  Senserit sed commodo. Ubi nescius a iudicem, non veniam si
+                  amet a tempor ad fabulas id ipsum excepteur relinqueret non
+                  fore commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat. Excepteur ea
+                  probant, expetendis quid proident sed nostrud.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DIVIDER -->
+          <br />
+          <br />
+          <br />
+          <!-- TABS -->
+          <h2>What can I do</h2>
+          <!-- TABS NAVIGATION -->
+          <div class="tab-nav-contain">
+            <ul class="nav nav-tabs">
+              <!-- TAB 1 -->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#mp-tab-fashion"
+                  aria-expanded="true"
+                  >1</a
+                >
+              </li>
+              <!-- TAB 2 -->
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#mp-tab-wildlife"
+                  aria-expanded="false"
+                  >2</a
+                >
+              </li>
+              <!-- TAB 3 -->
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#mp-tab-real-estate"
+                  aria-expanded="false"
+                  >3</a
+                >
+              </li>
+            </ul>
+            <!-- TABS CONTENT -->
+            <div class="eskimo-tabs-content tab-content">
+              <!-- TAB 1 -->
+              <div
+                class="tab-pane fade active show"
+                id="mp-tab-fashion"
+                role="button"
+                aria-expanded="true"
+              >
+                <p>
+                  1 sed commodo. Ubi nescius a iudicem, non veniam si amet a
+                  tempor ad fabulas id ipsum excepteur relinqueret non fore
+                  commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat.
+                </p>
+                <p>
+                  Excepteur ea probant, expetendis quid proident sed nostrud.
+                  Doctrina quis offendit, aliquip summis occaecat singulis nam
+                  de aut magna probant ne de sunt nostrud eu ut eram
+                  philosophari, ita dolore quamquam coniunctione e ita velit
+                  excepteur, ita e dolor amet tamen. Quis occaecat si
+                  praesentibus, minim ne mentitum.
+                </p>
+              </div>
+              <!-- TAB 2 -->
+              <div
+                class="tab-pane fade"
+                id="mp-tab-wildlife"
+                role="button"
+                aria-expanded="false"
+              >
+                <p>
+                  2 sed commodo. Ubi nescius a iudicem, non veniam si amet a
+                  tempor ad fabulas id ipsum excepteur relinqueret non fore
+                  commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat.
+                </p>
+                <p>
+                  Excepteur ea probant, expetendis quid proident sed nostrud.
+                  Doctrina quis offendit, aliquip summis occaecat singulis nam
+                  de aut magna probant ne de sunt nostrud eu ut eram
+                  philosophari, ita dolore quamquam coniunctione e ita velit
+                  excepteur, ita e dolor amet tamen. Quis occaecat si
+                  praesentibus, minim ne mentitum.
+                </p>
+              </div>
+              <!-- TAB 3 -->
+              <div
+                class="tab-pane fade"
+                id="mp-tab-real-estate"
+                role="button"
+                aria-expanded="false"
+              >
+                <p>
+                  3 sed commodo. Ubi nescius a iudicem, non veniam si amet a
+                  tempor ad fabulas id ipsum excepteur relinqueret non fore
+                  commodo quibusdam, incidi imitaren do mentitum. Et enim
+                  offendit ingeniis. Dolor probant senserit si mandaremus do
+                  nulla laborum, hic aute iudicem expetendis id cupidatat tamen
+                  iudicem proident ut eram arbitror aut veniam enim, nostrud. Ex
+                  velit arbitror possumus, labore proident consequat, non aute
+                  cillum o fabulas ut probant ubi consequat.
+                </p>
+                <p>
+                  Excepteur ea probant, expetendis quid proident sed nostrud.
+                  Doctrina quis offendit, aliquip summis occaecat singulis nam
+                  de aut magna probant ne de sunt nostrud eu ut eram
+                  philosophari, ita dolore quamquam coniunctione e ita velit
+                  excepteur, ita e dolor amet tamen. Quis occaecat si
+                  praesentibus, minim ne mentitum.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- DIVIDER -->
+          <br />
+          <br />
+          <br />
+        </div>
+      </main>
+      <!-- FOOTER -->
+      <footer id="eskimo-footer">
+        <div _ngcontent-ros-c18 class="squiggle">
+          <svg
+            _ngcontent-ros-c18
+            aria-hidden="true"
+            width="100%"
+            height="8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <pattern
+              _ngcontent-ros-c18
+              id="a"
+              width="91"
+              height="8"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                _ngcontent-ros-c18
+                d="M114 4c-5.067 4.667-10.133 4.667-15.2 0S88.667-.667 83.6 4 73.467 8.667 68.4 4 58.267-.667 53.2 4 43.067 8.667 38 4 27.867-.667 22.8 4 12.667 8.667 7.6 4-2.533-.667-7.6 4s-10.133 4.667-15.2 0S-32.933-.667-38 4s-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0"
+                stroke="#E1E3E1"
+                stroke-linecap="square"
+              ></path>
+            </pattern>
+            <rect
+              _ngcontent-ros-c18
+              width="100%"
+              height="100%"
+              fill="url(#a)"
+            ></rect>
+          </svg>
+        </div>
+        <div class="container">
+          <!-- CREDITS -->
+          <div class="eskimo-footer-credits">
+            <p>
+              Inspired by Google's
+              <a href="https://m3.material.io/" target="_blank"
+                >Material Design 3</a
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- GO TO TOP BUTTON -->
+    <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+    <!-- FULLSCREEN SEARCH -->
+    <div id="eskimo-fullscreen-search">
+      <div id="eskimo-fullscreen-search-content">
+        <a href="#" id="eskimo-close-search"><i class="fa fa-times"></i></a>
+        <form
+          role="search"
+          method="get"
+          action="blog.html"
+          class="eskimo-lg-form"
+        >
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Enter a keyword..."
+              name="s"
+            />
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-default">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- JS FILES -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/salvattore.min.js"></script>
+    <script src="js/panel.js"></script>
+    <script src="js/reading-position-indicator.js"></script>
+    <script src="js/featherlight.js"></script>
+    <script src="js/ajax-contact-form.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
