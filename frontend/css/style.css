@@ -186,6 +186,11 @@ p {
 .widget {
     font-size: 1rem;
 }
+.nf-logo-img{
+    border-radius: 24px;
+    width: 10%;
+    height: auto;
+}
 #mobile-menu-button a{
     color: #c4c7c5;
 }
@@ -1946,7 +1951,7 @@ video {
     -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     -webkit-overflow-scrolling: touch;
-    overflow: auto;
+    overflow: hidden;
     z-index: 99;
     width: 310px;
     background-color: #2d2f31;
@@ -2002,6 +2007,9 @@ video {
     font-size: 1.1rem;
     line-height: 1.4;
 }
+.sub-menu-li{
+    font-size: 22px;
+}
 
 .eskimo-menu-ul li {
     margin: 0;
@@ -2025,6 +2033,10 @@ video {
     text-decoration: none;
     color: #c4c7c5;
     padding: 0;
+    font-size: 36px;
+}
+.sub-menu li a{
+    font-size: 22px;
 }
 
 .eskimo-menu-ul li a:hover,
@@ -2503,6 +2515,7 @@ video {
 
 .card-title {
     margin-bottom: 1rem;
+    font-size: 48px;
 }
 
 .card img {
@@ -2551,7 +2564,7 @@ video {
     padding: 1.5rem 2.5rem;
     background: transparent;
     border-top-color: rgba(0, 0, 0, 0.1);
-    font-size: 0.8rem;
+    font-size: 24px;
     line-height: 1.4;
 }
 
@@ -3145,16 +3158,21 @@ p.form-submit {
 .eskimo-author-img {
     width: 80%;
     margin-left: 10%;
-    /* margin: 0 auto 2rem auto; */
     display: block;
+    margin-bottom: -12%;
 }
 
 .eskimo-author-img img {
+    transition: 0.2s ease-in-out;
     width: 100%;
     height: auto;
     vertical-align: bottom;
     clip-path: circle();
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+.eskimo-author-img img:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(1.1);
 }
 
 .eskimo-author-subtitle {
@@ -3902,14 +3920,14 @@ p.form-submit {
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1301px) {
     #eskimo-social-cell,
     #eskimo-main-menu {
         display: block !important;
     }
 }
 
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 1300px) {
     html {
         font-size: 15px;
     }

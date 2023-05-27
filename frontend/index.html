@@ -14,7 +14,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/fontawesome.css" rel="stylesheet" type="text/css" />
     <link href="css/featherlight.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="./images/nf-logo2.jpg">
+    <link rel="icon" href="./images/nf-logo2.jpg" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
 
@@ -38,48 +38,84 @@
             >
               <!-- LOGO -->
               <div class="eskimo-author-img">
-                <img src="images/headshot.png" alt="JOHN DOE" />
+                <img src="images/headshot.png" alt="Nathan Foss headshot" />
               </div>
               <!-- MENU CONTAINER -->
               <div id="eskimo-sidebar-cell" class="w-100">
                 <!-- MOBILE MENU BUTTON -->
                 <div id="eskimo-menu-toggle">
                   <a id="mobile-menu-button" href="#"
-                    ><i class="fa fa-home"></i
-                  ></a>
+                    ><img class="nf-logo-img" src="./images/nf-logo.jpg" alt="Nathan Foss logo"
+                  /></a>
                 </div>
                 <!-- MENU -->
+                <!-- 
+                  For now, I have multiple html files but once I start implementing 
+                  more features I will delete everything except for index.html and use
+                  React for a single page application. I'll take inspiration from the other html files 
+                  though so it looks nice. I may actually remake this entire index.html as it's own
+                  separate component in React, then make the index file a blank file like normal.
+                  Maybe I'll add an animation on this screen saying Hi, I'm Nathan or waving.
+                -->
                 <nav id="eskimo-main-menu" class="menu-main-menu-container">
                   <ul class="eskimo-menu-ul">
-                    <li>
+                    <!-- <li>
                       <a href="#">Portfolio</a>
-                      <!-- 
-                        For now, I have multiple html files but once I start implementing 
-                        more features I will delete everything except for index.html and use
-                        React for a single page application. I'll take inspiration from the other html files 
-                        though so it looks nice. I may actually remake this entire index.html as it's own
-                        separate component in React, then make the index file a blank file like normal.
-                        Maybe I'll add an animation on this screen saying Hi, I'm Nathan or waving.
-                      -->
                       <ul class="sub-menu">
-                        <li><a href="index.html">About</a></li>
+                        <li><a href="index.html"><i class="fa fa-home"></i
+                          > About</a></li>
                         <li><a href="projects.html">Projects</a></li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">Content</a>
+                      <a href="#">My Content</a>
                       <ul class="sub-menu">
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="single-post.html">Single Post</a></li>
                         <li>
                           <a
                             href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
-                            >My Podcast <i class="fa fa-spotify"></i
+                            >Leetcode tutorials <i class="fa fa-youtube-play"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
+                            >Podcast <i class="fa fa-spotify"></i
                           ></a>
                         </li>
                       </ul>
                     </li>
-                    <li><a href="other-features.html">Other Features</a></li>
+                    <li><a href="other-features.html">Other Features</a></li> -->
+                    <li>
+                      <a style="font-size: 22px" href="index.html"
+                        ><i class="fa fa-home"></i> About</a
+                      >
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="projects.html"
+                        >Projects</a
+                      >
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="other-features.html"
+                        >Leetcode tutorials <i class="fa fa-youtube-play"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        style="font-size: 22px"
+                        href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
+                        >Podcast <i class="fa fa-spotify"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a style="font-size: 22px" href="other-features.html"
+                        >Other Features</a
+                      >
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -113,8 +149,11 @@
           </ul>
           <!-- PAGE TITLE -->
           <div class="eskimo-page-title">
-            <h1 style="font-size: 88px;"><span>Nathan Foss</span></h1>
-            <p>Junior Software Engineer | React | JavaScript, HTML/CSS | Python | Java | Ruby</p>
+            <h1 style="font-size: 88px"><span>Nathan Foss</span></h1>
+            <p>
+              Junior Software Engineer | React | JavaScript, HTML/CSS | Python |
+              Java | Ruby
+            </p>
             <p>
               I'm a Software Engineer with a passion for social impact and
               technology. I teach web development to highschoolers and teens at
@@ -147,7 +186,7 @@
             <img
               class="about-me-img"
               src="images/Hackathon-56.jpg"
-              alt="Jane Doe"
+              alt="Code2College black history month hackathon Feb, 2023"
               class="img-fluid mx-auto d-block eskimo-img-shadow"
             />
             <p class="about-me-p">
