@@ -21,6 +21,7 @@ export default function Home() {
           <a
             href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
             target="_blank"
+            rel="noreferrer" 
           >
             Leetcode tutorials
           </a>
@@ -29,6 +30,7 @@ export default function Home() {
           <a
             href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
             target="_blank"
+            rel="noreferrer" 
           >
             Podcast
           </a>

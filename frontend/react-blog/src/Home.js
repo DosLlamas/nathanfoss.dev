@@ -5,7 +5,7 @@ export default function Home() {
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/blogs/").then((res) => {
+    fetch("/blogs/").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setDjangoResp(data);
