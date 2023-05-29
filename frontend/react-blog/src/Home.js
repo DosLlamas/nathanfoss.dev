@@ -8,11 +8,16 @@ export default function Home() {
     fetch("/blogs").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          setDjangoResp(data);
+          setDjangoResp(data[0]?.message);
         });
-      } else {
+      } 
+      else {
         res.json().then((errorData) => setErrors(errorData.errors));
       }
+    })
+    .catch((error) => {
+      setErrors("An error occurred while fetching the data.");
+      console.error(error);
     });
   }, [djangoResp]);
 
