@@ -5,7 +5,7 @@ export default function Home() {
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    fetch("/blogs/").then((res) => {
+    fetch("/blogs").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setDjangoResp(data);
