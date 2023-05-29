@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Home() {
   const [djangoResp, setDjangoResp] = useState("");
-  const [errors, setErrors] = useState("");
+  const [errors, setErrors] = useState(null);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/blogs/").then((res) => {
@@ -14,16 +14,23 @@ export default function Home() {
         res.json().then((errorData) => setErrors(errorData.errors));
       }
     });
-  }, []);
+  }, [djangoResp]);
 
-  errors ? (
+  return(
     <div>
-      <p>{errors}</p>
+      {errors ? (
+        <div>
+          <h1>Home</h1>
+          <p>Errors{errors}</p>
+        </div>
+      ) : (
+        <div>
+          <h1>Home</h1>
+          <p>
+            Response from django API:<br/>
+            {djangoResp ? djangoResp : "No response"}</p>
+        </div>
+      )}
     </div>
-  ) : (
-    <div>
-      <h1>Home</h1>
-      <p>Response from django API: {djangoResp ? djangoResp : "No response"}</p>
-    </div>
-  );
+  )
 }
