@@ -14,7 +14,7 @@ The goals of this assignment are that students:
  1. - [x] Fork a copy of this repo. This copy will be where your blog is stored.
  2. - [x] Add your fellow engineers to your repo as contributors.
  3. - [x] Find a frontend theme that you like from [Envato Elements](https://elements.envato.com/web-templates/site-templates) - we have an Envato Elements account for the nonprofit, so these themes can be acquired for you!
- 4. - [ ] Spend time learning the Django framework.
+ 4. - [x] Spend time learning the Django framework.
  5. - [ ] Fulfill all of the tickets in this repo. Each ticket will be considered "complete" when their acceptance criteria is completed.
  6. - [ ] Create a new branch for each ticket, and merge your work back in once your ticket is completed. Have your code reviewed by another engineer before it's merged in.
  7. - [ ] Post at least one of your articles to this blog.
