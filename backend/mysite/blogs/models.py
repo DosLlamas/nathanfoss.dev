@@ -1,10 +1,11 @@
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
 
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.CharField(max_length=60)
-    password = models.CharField(max_length=50)
+    email = models.CharField(max_length=60, unique=True)
+    password = models.CharField(max_length=50, validators=[MinLengthValidator(8)])
     profile_image = models.TextField()
     roles = models.ManyToManyField('Role', related_name='users')
 
@@ -13,7 +14,7 @@ class Role(models.Model):
     description = models.CharField(max_length=100)
 
 class Comment(models.Model):
-    content = models.CharField(max_length=1000)
+    content = models.CharField(max_length=1000, validators=[MaxLengthValidator(1000)])
     likes = models.ManyToManyField('CommentLike', related_name='comments')
 
 class CommentLike(models.Model):
@@ -42,7 +43,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=50)
     image = models.TextField()
     video = models.TextField()
-    content = models.CharField(max_length=5000)
+    content = models.CharField(max_length=5000, validators=[MaxLengthValidator(5000)])
     expected_read_time = models.CharField(max_length=50)
     comment = models.OneToOneField('Comment', on_delete=models.CASCADE, related_name='blog_post')
     post_category = models.ForeignKey('BlogPostCategory', on_delete=models.CASCADE, related_name='blog_posts')
