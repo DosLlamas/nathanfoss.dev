@@ -4,6 +4,7 @@ import Login from "./Login";
 import About from "./About";
 import Projects from "./Projects";
 import Blog from "./Blog";
+import Signup from "./Signup";
 // Packages
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +22,7 @@ function App() {
           <div className="login-container">
             <Routes>
               <Route path="/" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </div>
         ) : (
