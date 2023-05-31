@@ -1,13 +1,17 @@
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
+from django.contrib.auth.hashers import make_password
+
 
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.CharField(max_length=60, unique=True)
-    password = models.CharField(max_length=50, validators=[MinLengthValidator(8)])
+    email = models.EmailField(unique=True)
+    password = models.CharField(validators=[MinLengthValidator(8)])
     profile_image = models.TextField()
     roles = models.ManyToManyField('Role', related_name='users')
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
 
 class Role(models.Model):
     type = models.CharField(max_length=50)

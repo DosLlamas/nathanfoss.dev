@@ -1,7 +1,6 @@
 // CSS
-import "./App.css";
 import "tailwindcss/tailwind.css";
-import "./index.css";
+import "./App.css";
 // App
 import App from "./App";
 // Packages

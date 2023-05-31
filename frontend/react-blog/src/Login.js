@@ -19,7 +19,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 
-export default function Login() {
+export default function Login({ setCurrentUser }) {
   const [transitionedIn, setTransitionedIn] = useState(false);
 
   useEffect(() => {
@@ -31,17 +31,47 @@ export default function Login() {
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
   const navigateToSignupPage = (e) => {
     navigate("/signup");
   };
 
-  // const [djangoResp, setDjangoResp] = useState("");
-  // const [errors, setErrors] = useState(null);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
+  const { email, password } = formData;
+  const [errors, setErrors] = useState(null);
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    const user = {
+      email,
+      password,
+    };
+
+    fetch(`/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          navigate("/about");
+        });
+      } else {
+        res.json().then((json) => setErrors(json.errors));
+      }
+    });
+  };
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // const [djangoResp, setDjangoResp] = useState("");
   // useEffect(() => {
   //   fetch("/blogs")
   //     .then((res) => {
@@ -59,7 +89,14 @@ export default function Login() {
   //     });
   // }, [djangoResp]);
 
-  // if (errors) return <h1>{errors}</h1>;
+  if (errors) {
+    return (
+      <>
+        <h1>An error occured with logging in:</h1>
+        <p>{errors.message}</p>
+      </>
+    );
+  }
   return (
     <div className="primary-container">
       <div
@@ -107,74 +144,90 @@ export default function Login() {
             <p className="or">OR</p>
             <div className="or-right-line"></div>
           </div>
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, color: "#c4c7c5" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <form onSubmit={loginHandler}>
             <Box
-              fullwidth
-              sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 1, color: "#c4c7c5" },
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
-              <EmailIcon sx={{ fontSize: "50px" }} />
-              <TextField required fullWidth label="Email" variant="outlined" />
-            </Box>
-            <Box
-              fullwidth
-              sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
-            >
-              <LockIcon sx={{ fontSize: "50px" }} />
-
               <Box
                 fullwidth
                 sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
               >
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel
-                    sx={{ borderRadius: "24px" }}
-                    htmlFor="outlined-adornment-password"
-                    required
-                  >
-                    Password
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-password"
-                    type={showPassword ? "text" : "password"}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                        >
-                          {showPassword ? (
-                            <VisibilityIcon />
-                          ) : (
-                            <VisibilityOffIcon />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                    label="Password"
-                  />
-                </FormControl>
+                <EmailIcon sx={{ fontSize: "50px" }} />
+                <TextField
+                  required
+                  fullWidth
+                  label="Email"
+                  variant="outlined"
+                  name="email"
+                  value={email}
+                  onChange={changeHandler}
+                />
+              </Box>
+              <Box
+                fullwidth
+                sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
+              >
+                <LockIcon sx={{ fontSize: "50px" }} />
+
+                <Box
+                  fullwidth
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    width: "100%",
+                  }}
+                >
+                  <FormControl fullWidth variant="outlined">
+                    <InputLabel
+                      sx={{ borderRadius: "24px" }}
+                      // htmlFor="outlined-adornment-password"
+                      required
+                      value={password}
+                      name="password"
+                      onChange={changeHandler}
+                    >
+                      Password
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            edge="end"
+                          >
+                            {showPassword ? (
+                              <VisibilityIcon />
+                            ) : (
+                              <VisibilityOffIcon />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                      label="Password"
+                    />
+                  </FormControl>
+                </Box>
               </Box>
             </Box>
-          </Box>
-          <div className="contact-card-wrapper" style={{ cursor: "pointer" }}>
-            <div className="contact-card">
-              <LoginIcon /> Sign in
+            <div className="contact-card-wrapper" style={{ cursor: "pointer" }}>
+              <div className="contact-card" type="submit">
+                <LoginIcon /> Sign in
+              </div>
+              <div className="contact-card" onClick={navigateToSignupPage}>
+                Need an account? <span>Sign up</span>
+              </div>
             </div>
-            <div className="contact-card" onClick={navigateToSignupPage}>
-              Need an account? <span>Sign up</span>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
