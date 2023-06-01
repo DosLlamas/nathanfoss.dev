@@ -22,7 +22,7 @@ function App() {
           <div className="login-container">
             <Routes>
               <Route path="/" element={<Login setCurrentUser={setCurrentUser}/>} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/signup" element={<Signup etCurrentUser={setCurrentUser}/>} />
             </Routes>
           </div>
         ) : (

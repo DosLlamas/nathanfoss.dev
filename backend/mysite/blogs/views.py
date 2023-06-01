@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-# This is from the article
 from .models import User
 from .serializers import UserSerializer
 from rest_framework import viewsets
@@ -15,7 +14,6 @@ class UserViewSet(viewsets.ModelViewSet):
 # from .serializers import UserRegisterForm
 # from django.views.decorators.csrf import csrf_protect
 
-
 # Create your views here.
 
 # def index(request):
@@ -23,19 +21,4 @@ class UserViewSet(viewsets.ModelViewSet):
 #         {'message': 'Hello, React!'}
 #     ]
 #     return JsonResponse(data, safe=False)
-
-
-# class renderViews(View):
-#     def get(self, request):
-#         form = UserRegisterForm()
-#         return render(request)
-    
-#     # @csrf_protect
-#     def post(self, request):
-#         form = UserRegisterForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return {'message': 'User successfully created :)'}
-#         else:
-#             return {'message':'U done fucked up.'}
 

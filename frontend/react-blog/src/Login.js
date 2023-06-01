@@ -161,7 +161,6 @@ export default function Login({ setCurrentUser }) {
               >
                 <EmailIcon sx={{ fontSize: "50px" }} />
                 <TextField
-                  required
                   fullWidth
                   label="Email"
                   variant="outlined"
@@ -188,7 +187,6 @@ export default function Login({ setCurrentUser }) {
                     <InputLabel
                       sx={{ borderRadius: "24px" }}
                       // htmlFor="outlined-adornment-password"
-                      required
                       value={password}
                       name="password"
                       onChange={changeHandler}

@@ -90,6 +90,8 @@ h1 {
 .transitioned-in {
   opacity: 1;
   position: fixed;
+  height: 115%;
+
   
 }
 .transition-in2 {
@@ -115,6 +117,9 @@ h1 {
 .transitioned-in2 {
   opacity: 1;
   position: fixed;
+  margin-top: -2%;
+  height: 113%;
+
 }
 .welcome-card {
   background: #e3e3e3;
@@ -123,9 +128,9 @@ h1 {
   margin: 0 auto;
   padding: 8%;
   padding-top: 0%;
-  padding-top: 0%;
   width: 70%;
-  height: 70%;
+  height: 80%;
+
 }
 .welcome-card h1, p{
   color: #2d2f31

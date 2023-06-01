@@ -11,13 +11,17 @@ import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import LoginIcon from "@mui/icons-material/Login";
-// Components
-import API from './API';
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
 
-const Signup = () => {
+// Components
+import API from "./API";
+
+const Signup = ({ setCurrentUser }) => {
   const [transitionedIn, setTransitionedIn] = useState(false);
 
   useEffect(() => {
@@ -37,8 +41,9 @@ const Signup = () => {
     confirm_password: "",
   });
 
-  const [errors, setErrors] = useState(null);
+  const [errors, setErrors] = useState({});
   const { first_name, last_name, email, password, confirm_password } = formData;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted. Starting Axios:");
@@ -47,8 +52,37 @@ const Signup = () => {
       last_name,
       email,
       password,
-      confirm_password
+      confirm_password,
     };
+
+    try {
+      await API.post("/", newUser);
+      // Request succeeded, perform any necessary actions
+    } catch (error) {
+      // Request failed, handle the error
+      setErrors({});
+      if (error.response.data.email?.[0]) {
+        console.log(
+          "Error occurred during signup(Email not valid):",
+          error.response.data.email[0]
+        );
+        setErrors({ email: error.response.data.email[0] });
+      } else if (error.response.data.password?.[0]) {
+        console.log(
+          "Error occurred during signup(Password length):",
+          error.response.data.password[0]
+        );
+        setErrors({ password: error.response.data.password[0] });
+      } else if (error.response.data.non_field_errors?.[0]) {
+        console.log(
+          "Error occurred during signup(Password length):",
+          error.response.data.non_field_errors[0]
+        );
+        setErrors({
+          non_field_errors: error.response.data.non_field_errors[0],
+        });
+      }
+    }
   };
 
   const changeHandler = (e) => {
@@ -60,15 +94,6 @@ const Signup = () => {
   const navigateToLoginPage = (e) => {
     navigate("/");
   };
-
-  if (errors) {
-    return (
-      <>
-        <h1>An error occured with signing up:</h1>
-        <p>{errors}</p>
-      </>
-    );
-  }
   return (
     <div className="primary-container">
       <div
@@ -98,13 +123,10 @@ const Signup = () => {
               <div className="flex flex-col items-center ">
                 <PersonIcon sx={{ color: "#c4c7c5", fontSize: "50px" }} />
                 <EmailIcon
-                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "200%" }}
+                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "290%" }}
                 />
                 <LockIcon
-                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "40%" }}
-                />
-                <LockIcon
-                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "40%" }}
+                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "80%" }}
                 />
               </div>
               <div className="w-full">
@@ -118,6 +140,7 @@ const Signup = () => {
                     value={first_name}
                     onChange={changeHandler}
                     required
+                    helperText="*required"
                   />
                   <TextField
                     fullWidth
@@ -127,8 +150,10 @@ const Signup = () => {
                     value={last_name}
                     onChange={changeHandler}
                     required
+                    helperText="*required"
                   />
                   <TextField
+                    error={errors?.email}
                     fullWidth
                     label="Email"
                     variant="outlined"
@@ -136,15 +161,19 @@ const Signup = () => {
                     value={email}
                     onChange={changeHandler}
                     required
+                    helperText={errors.email ? errors.email : "*required"}
                   />
-                  <FormControl fullWidth variant="outlined">
+                  <FormControl
+                    fullWidth
+                    variant="outlined"
+                    error={errors.password}
+                  >
                     <InputLabel
                       required /*htmlFor="outlined-adornment-password"*/
                     >
                       Password
                     </InputLabel>
                     <OutlinedInput
-                      // id="outlined-adornment-password"
                       type={showPassword ? "text" : "password"}
                       endAdornment={
                         <InputAdornment position="end">
@@ -166,8 +195,15 @@ const Signup = () => {
                       value={password}
                       onChange={changeHandler}
                     />
+                    <FormHelperText>
+                      {errors.password ? errors.password : "*required"}
+                    </FormHelperText>
                   </FormControl>
-                  <FormControl fullWidth variant="outlined">
+                  <FormControl
+                    fullWidth
+                    variant="outlined"
+                    error={errors.non_field_errors}
+                  >
                     <InputLabel
                       required /*htmlFor="outlined-adornment-password"*/
                     >
@@ -196,6 +232,9 @@ const Signup = () => {
                       value={confirm_password}
                       onChange={changeHandler}
                     />
+                    <FormHelperText>
+                      {errors.non_field_errors ? errors.non_field_errors : "*required"}
+                    </FormHelperText>
                   </FormControl>
                 </div>
               </div>
