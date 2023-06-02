@@ -12,9 +12,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [lightDarkMode, setLightDarkMode] = useState("light");
   const [currentUser, setCurrentUser] = useState(false);
-  const [errors, setErrors] = useState(null);
 
-  if (errors) return <h1>{errors}</h1>;
   return (
     <div className="App">
       <div className="main-container">
@@ -22,7 +20,7 @@ function App() {
           <div className="login-container">
             <Routes>
               <Route path="/" element={<Login setCurrentUser={setCurrentUser}/>} />
-              <Route path="/signup" element={<Signup etCurrentUser={setCurrentUser}/>} />
+              <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser}/>} />
             </Routes>
           </div>
         ) : (

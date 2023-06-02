@@ -15,11 +15,8 @@ import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import LoginIcon from "@mui/icons-material/Login";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-
 // Components
-import API from "./API";
+import userRequest from "./userRequests";
 
 const Signup = ({ setCurrentUser }) => {
   const [transitionedIn, setTransitionedIn] = useState(false);
@@ -46,7 +43,6 @@ const Signup = ({ setCurrentUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted. Starting Axios:");
     const newUser = {
       first_name,
       last_name,
@@ -56,28 +52,18 @@ const Signup = ({ setCurrentUser }) => {
     };
 
     try {
-      await API.post("/", newUser);
+      await userRequest.post("/", newUser);
       // Request succeeded, perform any necessary actions
+      setCurrentUser(newUser)
+      navigate("/about");
     } catch (error) {
       // Request failed, handle the error
       setErrors({});
       if (error.response.data.email?.[0]) {
-        console.log(
-          "Error occurred during signup(Email not valid):",
-          error.response.data.email[0]
-        );
         setErrors({ email: error.response.data.email[0] });
       } else if (error.response.data.password?.[0]) {
-        console.log(
-          "Error occurred during signup(Password length):",
-          error.response.data.password[0]
-        );
         setErrors({ password: error.response.data.password[0] });
       } else if (error.response.data.non_field_errors?.[0]) {
-        console.log(
-          "Error occurred during signup(Password length):",
-          error.response.data.non_field_errors[0]
-        );
         setErrors({
           non_field_errors: error.response.data.non_field_errors[0],
         });
@@ -88,7 +74,6 @@ const Signup = ({ setCurrentUser }) => {
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
   };
 
   const navigateToLoginPage = (e) => {
@@ -196,7 +181,7 @@ const Signup = ({ setCurrentUser }) => {
                       onChange={changeHandler}
                     />
                     <FormHelperText>
-                      {errors.password ? errors.password : "*required"}
+                      {errors.password ? errors.password : "*required, at least 8 characters"}
                     </FormHelperText>
                   </FormControl>
                   <FormControl
