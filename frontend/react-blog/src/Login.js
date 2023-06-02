@@ -16,10 +16,13 @@ import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
+// Components
+import userRequest from "./userRequests";
 
-export default function Login({ setCurrentUser }) {
+export default function Login({ setCurrentUser, setGuestUser }) {
   const [transitionedIn, setTransitionedIn] = useState(false);
 
   useEffect(() => {
@@ -41,29 +44,35 @@ export default function Login({ setCurrentUser }) {
   });
 
   const { email, password } = formData;
-  const [errors, setErrors] = useState(null);
+  const [errors, setErrors] = useState({});
 
-  const loginHandler = (e) => {
+  const handleGuestLogin = () => {
+    setGuestUser(true)
+    navigate("/about");
+  }
+  const loginHandler = async (e) => {
     e.preventDefault();
     const user = {
       email,
       password,
     };
+    try {
+      await userRequest.post("/", user);
+      // Request succeeded, perform any necessary actions
+      setCurrentUser(user);
+      navigate("/about");
+    } catch (error) {
+      // Request failed, handle the error
 
-    fetch(`/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          setCurrentUser(user);
-          navigate("/about");
-        });
+      setErrors({});
+      if (error.response.data.email?.[0]) {
+        setErrors({ email: error.response.data.email[0] });
+      } else if (error.response.data.password?.[0]) {
+        setErrors({ password: error.response.data.password[0] });
       } else {
-        res.json().then((json) => setErrors(json.errors));
+        console.log(error)
       }
-    });
+    }
   };
 
   const changeHandler = (e) => {
@@ -71,32 +80,7 @@ export default function Login({ setCurrentUser }) {
     setFormData({ ...formData, [name]: value });
   };
 
-  // const [djangoResp, setDjangoResp] = useState("");
-  // useEffect(() => {
-  //   fetch("/blogs")
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         res.json().then((data) => {
-  //           setDjangoResp(data[0]?.message);
-  //         });
-  //       } else {
-  //         res.json().then((errorData) => setErrors(errorData.errors));
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       setErrors("An error occurred while fetching the data.");
-  //       console.error(error);
-  //     });
-  // }, [djangoResp]);
 
-  if (errors) {
-    return (
-      <>
-        <h1>An error occured with logging in:</h1>
-        <p>{errors.message}</p>
-      </>
-    );
-  }
   return (
     <div className="primary-container">
       <div
@@ -133,8 +117,8 @@ export default function Login({ setCurrentUser }) {
             <img src={Pika} alt="Pikachu running" width="70%" height="auto" />
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <div className="guest-btn">
-              <div className="guest-btn-content">
+            <div className="guest-btn" onClick={handleGuestLogin}>
+              <div className="guest-btn-content" >
                 <PersonIcon /> Continue as a guest
               </div>
             </div>
@@ -159,7 +143,7 @@ export default function Login({ setCurrentUser }) {
                 fullwidth
                 sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
               >
-                <EmailIcon sx={{ fontSize: "50px" }} />
+                <EmailIcon sx={{ fontSize: "50px", marginBottom:"3%"}} />
                 <TextField
                   fullWidth
                   label="Email"
@@ -167,13 +151,15 @@ export default function Login({ setCurrentUser }) {
                   name="email"
                   value={email}
                   onChange={changeHandler}
+                  error={errors?.email}
+                  helperText={errors.email ? errors.email : " "}
                 />
               </Box>
               <Box
                 fullwidth
                 sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
               >
-                <LockIcon sx={{ fontSize: "50px" }} />
+                <LockIcon sx={{ fontSize: "50px", marginBottom:"3%" }} />
 
                 <Box
                   fullwidth
@@ -213,13 +199,16 @@ export default function Login({ setCurrentUser }) {
                       }
                       label="Password"
                     />
+                    <FormHelperText>
+                      {errors.password ? errors.password : " "}
+                    </FormHelperText>
                   </FormControl>
                 </Box>
               </Box>
             </Box>
             <div className="contact-card-wrapper" style={{ cursor: "pointer" }}>
               <div className="contact-card" type="submit">
-                <LoginIcon /> Sign in
+                <LoginIcon /> Log in
               </div>
               <div className="contact-card" onClick={navigateToSignupPage}>
                 Need an account? <span>Sign up</span>

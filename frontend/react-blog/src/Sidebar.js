@@ -1,13 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function Home() {
+export default function Home({ currentUser, guestUser }) {
   return (
     <div>
       <ul>
-        <li>
-          <NavLink to={"/"}>Home</NavLink>
-        </li>
         <li>
           <NavLink to={"/about"}>About</NavLink>
         </li>
@@ -21,7 +18,7 @@ export default function Home() {
           <a
             href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
             target="_blank"
-            rel="noreferrer" 
+            rel="noreferrer"
           >
             Leetcode tutorials
           </a>
@@ -30,11 +27,16 @@ export default function Home() {
           <a
             href="https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx"
             target="_blank"
-            rel="noreferrer" 
+            rel="noreferrer"
           >
             Podcast
           </a>
         </li>
+        {currentUser ? (
+          <li>
+            <NavLink to={"/about"}>Settings</NavLink>
+          </li>
+        ) : null}
       </ul>
     </div>
   );

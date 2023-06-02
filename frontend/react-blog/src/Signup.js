@@ -138,7 +138,6 @@ const Signup = ({ setCurrentUser }) => {
                     helperText="*required"
                   />
                   <TextField
-                    error={errors?.email}
                     fullWidth
                     label="Email"
                     variant="outlined"
@@ -146,6 +145,7 @@ const Signup = ({ setCurrentUser }) => {
                     value={email}
                     onChange={changeHandler}
                     required
+                    error={errors?.email}
                     helperText={errors.email ? errors.email : "*required"}
                   />
                   <FormControl
