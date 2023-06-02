@@ -207,12 +207,12 @@ export default function Login({ setCurrentUser, setGuestUser }) {
               </Box>
             </Box>
             <div className="contact-card-wrapper" style={{ cursor: "pointer" }}>
-              <div className="contact-card" type="submit">
+              <button className="contact-card" type="submit">
                 <LoginIcon /> Log in
-              </div>
-              <div className="contact-card" onClick={navigateToSignupPage}>
+              </button>
+              <button className="contact-card" onClick={navigateToSignupPage}>
                 Need an account? <span>Sign up</span>
-              </div>
+              </button>
             </div>
           </form>
         </div>

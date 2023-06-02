@@ -225,9 +225,9 @@ const Signup = ({ setCurrentUser }) => {
               </div>
             </div>
             <div className="contact-card-wrapper" style={{ cursor: "pointer" }}>
-              <div className="contact-card" onClick={navigateToLoginPage}>
+              <button className="contact-card" onClick={navigateToLoginPage}>
                 Back
-              </div>
+              </button>
               <button className="contact-card" type="submit">
                 <LoginIcon /> Sign up
               </button>

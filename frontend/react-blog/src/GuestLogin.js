@@ -16,7 +16,7 @@ export default function GuestLogin({ setGuestUser }) {
     <div className="guest-login-bar">
       <div>
         <h2>Don't miss what's happening </h2>
-        <p>You can like, commenta, and favorite our posts</p>
+        <p>You can like, comment, and favorite our posts</p>
       </div>
       <div>
         <Button

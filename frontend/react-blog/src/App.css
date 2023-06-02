@@ -235,6 +235,14 @@ p {
 .contact-card:hover span {
   text-decoration: underline;
 }
+.contact-card:focus {
+  transition: all 0.2s ease-in-out;
+  background: #085786;
+  color: #e3e3e3;
+}
+.contact-card:focus span {
+  text-decoration: underline;
+}
 
 /* ================= SIDEBAR ================== */
 .sidebar {
