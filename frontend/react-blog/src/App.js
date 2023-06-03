@@ -21,7 +21,8 @@ function App() {
   useEffect(() => {
     try {
       userRequest.get("/user/")
-      .then(() => {
+      .then((response) => {
+        console.log(response)
         setCurrentUser(true);
       })
       .catch((error) => {
