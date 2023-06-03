@@ -34,7 +34,7 @@ export default function Home({ currentUser, guestUser }) {
         </li>
         {currentUser ? (
           <li>
-            <NavLink to={"/about"}>Settings</NavLink>
+            <NavLink to={"/settings"}>Settings</NavLink>
           </li>
         ) : null}
       </ul>

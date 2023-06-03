@@ -6,14 +6,32 @@ import Projects from "./Projects";
 import Blog from "./Blog";
 import Signup from "./Signup";
 import GuestLogin from "./GuestLogin";
+import userRequest from "./userRequests";
+import Settings from "./Settings";
 // Packages
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [lightDarkMode, setLightDarkMode] = useState("light");
+  // const [lightDarkMode, setLightDarkMode] = useState("light");
   const [currentUser, setCurrentUser] = useState(false);
   const [guestUser, setGuestUser] = useState(false);
+
+  // Verify that the user is logged in anytime the page reloads
+  useEffect(() => {
+    try {
+      userRequest.get("/user/")
+      .then(() => {
+        setCurrentUser(true);
+      })
+      .catch((error) => {
+        console.log(error)
+        setCurrentUser(false)
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   if (!currentUser && !guestUser) {
     return (
@@ -34,7 +52,6 @@ function App() {
                 path="/signup"
                 element={<Signup setCurrentUser={setCurrentUser} />}
               />
-              <Route path="/about" element={<About />} />
             </Routes>
           </div>
         </div>
@@ -53,6 +70,10 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
+            <Route
+              path="/settings"
+              element={<Settings setCurrentUser={setCurrentUser} />}
+            />
           </Routes>
         </div>
       </div>
@@ -73,7 +94,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
           </Routes>
-          <GuestLogin setGuestUser={setGuestUser}/>
+          <GuestLogin setGuestUser={setGuestUser} />
         </div>
       </div>
     );

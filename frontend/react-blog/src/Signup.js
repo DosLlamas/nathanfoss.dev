@@ -33,41 +33,56 @@ const Signup = ({ setCurrentUser }) => {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
+    username: "",
     email: "",
     password: "",
     confirm_password: "",
   });
 
   const [errors, setErrors] = useState({});
-  const { first_name, last_name, email, password, confirm_password } = formData;
+  const { first_name, last_name, username, email, password, confirm_password } = formData;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
       first_name,
       last_name,
+      username,
       email,
       password,
       confirm_password,
     };
 
     try {
-      await userRequest.post("/", newUser);
-      // Request succeeded, perform any necessary actions
-      setCurrentUser(newUser)
-      navigate("/about");
-    } catch (error) {
-      // Request failed, handle the error
-      setErrors({});
-      if (error.response.data.email?.[0]) {
-        setErrors({ email: error.response.data.email[0] });
-      } else if (error.response.data.password?.[0]) {
-        setErrors({ password: error.response.data.password[0] });
-      } else if (error.response.data.non_field_errors?.[0]) {
-        setErrors({
-          non_field_errors: error.response.data.non_field_errors[0],
+      await userRequest
+        .post("/signup/", newUser)
+        .then(async function (res) {
+          await userRequest.post("/login/", {
+            email: newUser.email,
+            password: newUser.password,
+          });
+          // Request succeeded, perform any necessary actions
+          setCurrentUser(newUser);
+          console.log("Signup and Login success");
+          navigate("/about");
+        })
+        .catch((error) => {
+          // Request failed, handle the error
+          setErrors({});
+          if (error.response.data.email) {
+            setErrors({ email: error.response.data.email });
+          } else if (error.response.data.password) {
+            setErrors({ password: error.response.data.password });
+          } else if (error.response.data.non_field_errors?.[0]) {
+            setErrors({
+              non_field_errors: error.response.data.non_field_errors[0],
+            });
+          } else {
+            console.log(error.response.data)
+          }
         });
-      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -99,7 +114,7 @@ const Signup = ({ setCurrentUser }) => {
               }}
             />
           </div>
-          <h1 style={{ fontSize: "88px" }}>Welcome</h1>
+          <h1 style={{ fontSize: "88px", marginTop: "-6%"}}>Welcome</h1>
           <p style={{ fontSize: "22px" }}>
             nathanfoss.dev <b style={{ color: "#085786" }}>web</b>
           </p>
@@ -108,7 +123,7 @@ const Signup = ({ setCurrentUser }) => {
               <div className="flex flex-col items-center ">
                 <PersonIcon sx={{ color: "#c4c7c5", fontSize: "50px" }} />
                 <EmailIcon
-                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "290%" }}
+                  sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "480%" }}
                 />
                 <LockIcon
                   sx={{ color: "#c4c7c5", fontSize: "50px", marginTop: "80%" }}
@@ -133,6 +148,16 @@ const Signup = ({ setCurrentUser }) => {
                     variant="outlined"
                     name="last_name"
                     value={last_name}
+                    onChange={changeHandler}
+                    required
+                    helperText="*required"
+                  />
+                  <TextField
+                    fullWidth
+                    label="Username"
+                    variant="outlined"
+                    name="username"
+                    value={username}
                     onChange={changeHandler}
                     required
                     helperText="*required"
@@ -181,7 +206,9 @@ const Signup = ({ setCurrentUser }) => {
                       onChange={changeHandler}
                     />
                     <FormHelperText>
-                      {errors.password ? errors.password : "*required, at least 8 characters"}
+                      {errors.password
+                        ? errors.password
+                        : "*required, at least 8 characters"}
                     </FormHelperText>
                   </FormControl>
                   <FormControl
@@ -218,7 +245,9 @@ const Signup = ({ setCurrentUser }) => {
                       onChange={changeHandler}
                     />
                     <FormHelperText>
-                      {errors.non_field_errors ? errors.non_field_errors : "*required"}
+                      {errors.non_field_errors
+                        ? errors.non_field_errors
+                        : "*required"}
                     </FormHelperText>
                   </FormControl>
                 </div>

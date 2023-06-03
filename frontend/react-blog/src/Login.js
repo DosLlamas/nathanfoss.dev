@@ -47,9 +47,9 @@ export default function Login({ setCurrentUser, setGuestUser }) {
   const [errors, setErrors] = useState({});
 
   const handleGuestLogin = () => {
-    setGuestUser(true)
+    setGuestUser(true);
     navigate("/about");
-  }
+  };
   const loginHandler = async (e) => {
     e.preventDefault();
     const user = {
@@ -57,21 +57,25 @@ export default function Login({ setCurrentUser, setGuestUser }) {
       password,
     };
     try {
-      await userRequest.post("/", user);
-      // Request succeeded, perform any necessary actions
-      setCurrentUser(user);
-      navigate("/about");
+      await userRequest
+        .post("/login/", user)
+        .then(() => {
+          // Request succeeded, perform any necessary actions
+          setCurrentUser(user);
+          console.log("Login success");
+          navigate("/about");
+        })
+        .catch((error) => {
+          // Request failed, handle the error
+          setErrors({});
+          if (error.response.data[0]) {
+            setErrors({ email: error.response.data[0], password: error.response.data[0]});
+          } else {
+            console.log(error);
+          }
+        });
     } catch (error) {
-      // Request failed, handle the error
-
-      setErrors({});
-      if (error.response.data.email?.[0]) {
-        setErrors({ email: error.response.data.email[0] });
-      } else if (error.response.data.password?.[0]) {
-        setErrors({ password: error.response.data.password[0] });
-      } else {
-        console.log(error)
-      }
+      console.log(error);
     }
   };
 
@@ -79,7 +83,6 @@ export default function Login({ setCurrentUser, setGuestUser }) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
 
   return (
     <div className="primary-container">
@@ -118,7 +121,7 @@ export default function Login({ setCurrentUser, setGuestUser }) {
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="guest-btn" onClick={handleGuestLogin}>
-              <div className="guest-btn-content" >
+              <div className="guest-btn-content">
                 <PersonIcon /> Continue as a guest
               </div>
             </div>
@@ -143,7 +146,7 @@ export default function Login({ setCurrentUser, setGuestUser }) {
                 fullwidth
                 sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
               >
-                <EmailIcon sx={{ fontSize: "50px", marginBottom:"3%"}} />
+                <EmailIcon sx={{ fontSize: "50px", marginBottom: "3%" }} />
                 <TextField
                   fullWidth
                   label="Email"
@@ -159,7 +162,7 @@ export default function Login({ setCurrentUser, setGuestUser }) {
                 fullwidth
                 sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}
               >
-                <LockIcon sx={{ fontSize: "50px", marginBottom:"3%" }} />
+                <LockIcon sx={{ fontSize: "50px", marginBottom: "3%" }} />
 
                 <Box
                   fullwidth
@@ -169,13 +172,14 @@ export default function Login({ setCurrentUser, setGuestUser }) {
                     width: "100%",
                   }}
                 >
-                  <FormControl fullWidth variant="outlined">
+                  <FormControl
+                    error={errors.password}
+                    fullWidth
+                    variant="outlined"
+                  >
                     <InputLabel
                       sx={{ borderRadius: "24px" }}
                       // htmlFor="outlined-adornment-password"
-                      value={password}
-                      name="password"
-                      onChange={changeHandler}
                     >
                       Password
                     </InputLabel>
@@ -197,7 +201,10 @@ export default function Login({ setCurrentUser, setGuestUser }) {
                           </IconButton>
                         </InputAdornment>
                       }
+                      value={password}
+                      name="password"
                       label="Password"
+                      onChange={changeHandler}
                     />
                     <FormHelperText>
                       {errors.password ? errors.password : " "}
