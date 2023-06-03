@@ -1,2 +1,2 @@
 # To block my database user info
-/mysite/mysite/settings.py
+/mysite/.env
