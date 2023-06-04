@@ -24,7 +24,7 @@ class AppUserManager(BaseUserManager):
         user.is_superuser = True
         user.save()
         return user
-    
+
 class AppUser(AbstractBaseUser, PermissionsMixin):
     user_id = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=50, unique=True)
@@ -58,11 +58,6 @@ class Tag(models.Model):
     users = models.ManyToManyField(AppUser, related_name='tags')
     blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='post_tags')
 
-class BlogPostCategory(models.Model):
-    name = models.CharField(max_length=50)
-    users = models.ManyToManyField(AppUser, related_name='categories')
-    blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='categories')
-
 class BlogPostLike(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_likes')
 
@@ -78,5 +73,4 @@ class BlogPost(models.Model):
     content = models.CharField(max_length=5000)
     expected_read_time = models.CharField(max_length=50)
     comment = models.OneToOneField('Comment', on_delete=models.CASCADE, related_name='blog_post')
-    post_category = models.ForeignKey('BlogPostCategory', on_delete=models.CASCADE, related_name='blog_posts')
     tags = models.ManyToManyField('Tag', related_name='post_tags')

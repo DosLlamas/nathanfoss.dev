@@ -8,6 +8,7 @@ import Signup from "./Signup";
 import GuestLogin from "./GuestLogin";
 import userRequest from "./userRequests";
 import Settings from "./Settings";
+import BlogTopics from "./BlogTopics";
 // Packages
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -19,19 +20,16 @@ function App() {
 
   // Verify that the user is logged in anytime the page reloads
   useEffect(() => {
-    try {
-      userRequest.get("/user/")
+    userRequest
+      .get("/user/")
       .then((response) => {
-        console.log(response)
+        // console.log(response);
         setCurrentUser(true);
       })
       .catch((error) => {
-        console.log(error)
-        setCurrentUser(false)
-      })
-    } catch (error) {
-      console.log(error);
-    }
+        console.log(error);
+        setCurrentUser(false);
+      });
   }, []);
 
   if (!currentUser && !guestUser) {
@@ -63,7 +61,7 @@ function App() {
       <div className="App">
         <div className="main-container">
           <div className="sidebar">
-            <div classNme="d-flex align-items-start flex-column h-100 w-100">
+            <div className="d-flex align-items-start flex-column h-100 w-100">
               <Sidebar currentUser={currentUser} />
             </div>
           </div>
@@ -71,6 +69,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/explore-topics" element={<BlogTopics />} />
             <Route
               path="/settings"
               element={<Settings setCurrentUser={setCurrentUser} />}
@@ -94,6 +93,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/explore-topics" element={<BlogTopics />} />
           </Routes>
           <GuestLogin setGuestUser={setGuestUser} />
         </div>
