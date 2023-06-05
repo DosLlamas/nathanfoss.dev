@@ -18,7 +18,7 @@ import LoginIcon from "@mui/icons-material/Login";
 // Components
 import userRequest from "./userRequests";
 
-const Signup = ({ setCurrentUser }) => {
+const Signup = ({ setCurrentUser, setGuestUser }) => {
   const [transitionedIn, setTransitionedIn] = useState(false);
 
   useEffect(() => {
@@ -62,8 +62,8 @@ const Signup = ({ setCurrentUser }) => {
             password: newUser.password,
           });
           // Request succeeded, perform any necessary actions
+          setGuestUser(false);
           setCurrentUser(newUser);
-          console.log("Signup and Login success");
           navigate("/about");
         })
         .catch((error) => {

@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function GuestLogin({ setGuestUser }) {
   const navigate = useNavigate();
-  const navigateToSignupPage = (e) => {
+  const navigateToSignupPage = () => {
     setGuestUser(false);
     navigate("/signup");
   };
-  const navigateToLoginPage = (e) => {
+  const navigateToLoginPage = () => {
     setGuestUser(false);
     navigate("/");
   };
@@ -27,11 +27,7 @@ export default function GuestLogin({ setGuestUser }) {
           Log in
         </Button>
         {"   "}
-        <Button
-          onClick={navigateToSignupPage}
-          color="info"
-          variant="contained"
-        >
+        <Button onClick={navigateToSignupPage} color="info" variant="contained">
           Sign up
         </Button>
       </div>

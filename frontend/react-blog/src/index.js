@@ -1,8 +1,8 @@
 // CSS
 import "tailwindcss/tailwind.css";
-import "./App.css";
+import "./css/App.css"
 // App
-import App from "./App";
+import App from "./components/App";
 // Packages
 import React from "react";
 import ReactDOM from "react-dom/client";

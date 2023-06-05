@@ -28,7 +28,6 @@ export default function Settings({ setCurrentUser }) {
         .post("/logout/", { withCredentials: true })
         .then(() => {
           // Request successful
-          console.log("Logout successful")
           setCurrentUser(false);
           navigate("/");
         })

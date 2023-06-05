@@ -1,5 +1,5 @@
 // Assets
-import Pika from "./assets/pika.gif";
+import Pika from "../assets/pika.gif";
 // Packages
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -61,8 +61,8 @@ export default function Login({ setCurrentUser, setGuestUser }) {
         .post("/login/", user)
         .then(() => {
           // Request succeeded, perform any necessary actions
+          setGuestUser(false);
           setCurrentUser(user);
-          console.log("Login success");
           navigate("/about");
         })
         .catch((error) => {

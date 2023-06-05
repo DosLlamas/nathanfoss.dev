@@ -4,6 +4,7 @@ import Login from "./Login";
 import About from "./About";
 import Projects from "./Projects";
 import Blog from "./Blog";
+import SingleBlog from "./SingleBlog";
 import Signup from "./Signup";
 import GuestLogin from "./GuestLogin";
 import userRequest from "./userRequests";
@@ -20,17 +21,25 @@ function App() {
 
   // Verify that the user is logged in anytime the page reloads
   useEffect(() => {
+    const storedGuestUser = localStorage.getItem("guestUser");
+    if (storedGuestUser) {
+      setGuestUser(JSON.parse(storedGuestUser));
+    }
+
     userRequest
       .get("/user/")
       .then((response) => {
-        // console.log(response);
         setCurrentUser(true);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((notLoggedIn) => {
         setCurrentUser(false);
       });
   }, []);
+
+  const handleSetGuestUser = (value) => {
+    setGuestUser(value);
+    localStorage.setItem("guestUser", JSON.stringify(value));
+  };
 
   if (!currentUser && !guestUser) {
     return (
@@ -42,64 +51,49 @@ function App() {
                 path="/"
                 element={
                   <Login
-                    setGuestUser={setGuestUser}
+                    setGuestUser={handleSetGuestUser}
                     setCurrentUser={setCurrentUser}
                   />
                 }
               />
               <Route
                 path="/signup"
-                element={<Signup setCurrentUser={setCurrentUser} />}
+                element={
+                  <Signup
+                    setCurrentUser={setCurrentUser}
+                    setGuestUser={handleSetGuestUser}
+                  />
+                }
               />
             </Routes>
           </div>
         </div>
       </div>
     );
-  } else if (currentUser && !guestUser) {
+  } else {
     return (
       <div className="App">
         <div className="main-container">
           <div className="sidebar">
             <div className="d-flex align-items-start flex-column h-100 w-100">
-              <Sidebar currentUser={currentUser} />
+              <Sidebar guestUser={guestUser} currentUser={currentUser} />
             </div>
           </div>
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<SingleBlog />} />
             <Route path="/explore-topics" element={<BlogTopics />} />
             <Route
               path="/settings"
               element={<Settings setCurrentUser={setCurrentUser} />}
             />
           </Routes>
-        </div>
-      </div>
-    );
-  } else if (!currentUser && guestUser) {
-    return (
-      <div className="App">
-        <div className="main-container">
-          <div className="sidebar">
-            <div classNme="d-flex align-items-start flex-column h-100 w-100">
-              <Sidebar guestUser={guestUser} currentUser={currentUser} />
-            </div>
-          </div>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/explore-topics" element={<BlogTopics />} />
-          </Routes>
-          <GuestLogin setGuestUser={setGuestUser} />
+          {guestUser && <GuestLogin setGuestUser={handleSetGuestUser} />}
         </div>
       </div>
     );
   }
 }
-
 export default App;
