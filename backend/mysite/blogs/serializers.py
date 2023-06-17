@@ -1,7 +1,10 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model, authenticate
-
+from . import models 
 UserModel = get_user_model()
+
+# class BlogPostSerializer(serializers.ModelSerializer):
+#     model = models.BlogPost
 
 class UserSignupSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)
@@ -42,3 +45,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         fields = ('first_name', "last_name", 'email', 'username')
+
+class BlogsSerializer(serializers.ModelSerializer):
+    author = UserSerializer(read_only=True)
+    class Meta:
+        model = models.BlogPost
+        fields = ('author', 'title', 'content')
+

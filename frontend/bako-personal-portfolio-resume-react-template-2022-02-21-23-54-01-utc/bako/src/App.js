@@ -22,7 +22,7 @@ import WorkDetails2 from "./pages/WorkDetails2";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="">
       <Switch>
         <Route path="/" component={Homepage} exact />
         <Route path="/multipage" component={Multipage} exact />

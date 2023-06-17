@@ -44,9 +44,9 @@ function Header({ toggleHeader, toggleHandler }) {
           <span></span>
           <span></span>
         </button>
-        <Link to="/" className="logo" >
+        {/* <Link to="/" className="logo" >
           <img  src={headerData.imageThumb} alt={headerData.name} />
-        </Link>
+        </Link> */}
         <Link to="/" className="site-title dot ml-2">
           {headerData.name}
         </Link>

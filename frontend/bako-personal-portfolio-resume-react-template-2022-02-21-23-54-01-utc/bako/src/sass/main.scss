@@ -630,3 +630,22 @@ section {
   background-size: cover;
   background-attachment: fixed;
 }
+button {
+  border: none;
+  background-color: none;
+  background: none;
+}
+.blog-favorite-btn {
+  display: inline-block;
+  color: #888;
+}
+.blog-favorite-btn:hover {
+  color: var(--joy-palette-danger-600, #A10E25);
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.blog-favorite-btn-liked {
+  display: inline-block;
+  color: var(--joy-palette-danger-600, #A10E25);
+  cursor: pointer;
+}

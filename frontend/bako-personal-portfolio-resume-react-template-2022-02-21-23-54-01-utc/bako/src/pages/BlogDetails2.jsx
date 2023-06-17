@@ -3,6 +3,7 @@ import Markdown from "markdown-to-jsx";
 import Disqus from "disqus-react";
 import fm from "front-matter";
 import Layout2 from "../components/Layout/Layout2";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function BlogDetails2(props) {
   const [meta, setMeta] = useState("");
@@ -62,6 +63,10 @@ function BlogDetails2(props) {
           <Markdown children={content}></Markdown>
         </div>
         <div className="mi-blog-details-comments mt-4">
+          <div style={{ cursor: "pointer" }}>
+            <FavoriteBorderIcon />
+          </div>
+
           {/* <Disqus.DiscussionEmbed
             shortname={disqusShortname}
             config={disqusConfig}

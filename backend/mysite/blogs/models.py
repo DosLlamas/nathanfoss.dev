@@ -31,8 +31,9 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    profile_image = models.TextField()
-    roles = models.ManyToManyField('Role', related_name='users')
+    profile_image = models.ImageField()
+    roles = models.ManyToManyField('Role', related_name='user_roles')
+    tags = models.ManyToManyField('Tag', related_name='user_tags')
     is_staff = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -47,30 +48,32 @@ class Role(models.Model):
 
 class Comment(models.Model):
     content = models.CharField(max_length=1000)
-    likes = models.ManyToManyField('CommentLike', related_name='comments')
+    blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='blog_comment', default=None)
 
 class CommentLike(models.Model):
-    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='comment_likes')
+    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='comment_liked_by')
     comment = models.ForeignKey('Comment', on_delete=models.CASCADE, related_name='comment_likes')
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
-    users = models.ManyToManyField(AppUser, related_name='tags')
-    blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='post_tags')
 
 class BlogPostLike(models.Model):
-    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_likes')
+    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_liked_by')
+    blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='blog_likes', default=None)
 
 class BlogPostFavorite(models.Model):
-    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_favorites')
-    blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='blog_favorites')
+    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_favorited_by')
+    blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='blog_favorites', default=None)
 
 class BlogPost(models.Model):
-    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_posts')
+    author = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=50)
-    image = models.TextField()
+    image = models.ImageField()
     video = models.TextField()
     content = models.CharField(max_length=5000)
     expected_read_time = models.CharField(max_length=50)
-    comment = models.OneToOneField('Comment', on_delete=models.CASCADE, related_name='blog_post')
-    tags = models.ManyToManyField('Tag', related_name='post_tags')
+
+    def __str__(self):
+        return f"{self.title} | {self.author.username}"
+
+    

@@ -1,10 +1,13 @@
 from django.contrib.auth import get_user_model, login, logout
 UserModel = get_user_model()
+from . import models
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from .serializers import UserSignupSerializer, UserLoginSerializer, UserSerializer
+from .serializers import UserSignupSerializer, UserLoginSerializer, UserSerializer, BlogsSerializer
 from rest_framework import permissions, status
+from rest_framework.permissions import AllowAny
 from .validations import custom_validation, validate_email, validate_password
 
 
@@ -56,3 +59,19 @@ from rest_framework import viewsets
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = UserModel.objects.all()
+    
+class BlogPostViewSet(viewsets.ModelViewSet):
+    serializer_class = BlogsSerializer
+    queryset = models.BlogPost.objects.all()
+    permission_classes = [AllowAny]  # Allow unauthenticated access
+
+    
+# class BlogPostView(APIView):
+# 	def get(self, request):
+# 		serializer = BlogsSerializer(request)
+# 		return Response({'blogs': serializer.data}, status=status.HTTP_200_OK)
+    
+class LikePostView(APIView):
+	def like_post(self, request, pk):
+		post = get_object_or_404(models.BlogPost, id=request.POST.get('post_id'))
+		post.likes.add(request.user)
