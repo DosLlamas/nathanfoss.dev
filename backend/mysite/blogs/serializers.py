@@ -3,9 +3,6 @@ from django.contrib.auth import get_user_model, authenticate
 from . import models 
 UserModel = get_user_model()
 
-# class BlogPostSerializer(serializers.ModelSerializer):
-#     model = models.BlogPost
-
 class UserSignupSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)
 
@@ -40,7 +37,6 @@ class UserLoginSerializer(serializers.Serializer):
             raise serializers.ValidationError('Invalid email or password')
         return user
 
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
@@ -48,7 +44,18 @@ class UserSerializer(serializers.ModelSerializer):
 
 class BlogsSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)
+    id = serializers.IntegerField(source='pk', read_only=True)  # Include the id field
+
     class Meta:
         model = models.BlogPost
-        fields = ('author', 'title', 'content')
+        fields = ('id', 'author', 'title', 'content')
+
+class BlogDetailSerializer(serializers.ModelSerializer):
+    author = UserSerializer(read_only=True)
+    id = serializers.IntegerField(source='pk', read_only=True)
+
+    class Meta:
+        model = models.BlogPost
+        fields = ('id', 'author', 'title', 'content', 'expected_read_time')
+
 

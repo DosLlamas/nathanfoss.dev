@@ -23,6 +23,28 @@ main.content {
   }
 }
 
+.guest-login-bar {
+  margin-top: 10%;
+  text-align: left;
+  padding-left: 5%;
+  background-image: url("https://lh3.googleusercontent.com/U8dSUmCjiqUZmZoCxzBZ5oGBCqCVipJvghZZDUfRgErjMa_UKYWEAU4TwlArCrW_TLDzfuIE08tirIROhJ8OZDsFZf8DK4p7pam74PGvtqBiE0ES2gI=w2400-rj");
+  color: #e3e3e3;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  width: 95%;
+  height: 10%;
+  bottom: 1%;
+  position: fixed;
+  right: 5%;
+  border-radius: 40px;
+  white-space: pre;
+}
+.guest-login-bar p{
+  margin-top: -3%;
+}
+
 .hero {
   height: 620px;
   margin-top: 0;

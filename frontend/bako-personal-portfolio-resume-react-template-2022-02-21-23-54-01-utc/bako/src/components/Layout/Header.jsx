@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
+import userRequest from "../../pages/userRequests";
 import {
   FaFacebookF,
   FaTwitter,
@@ -8,6 +9,7 @@ import {
   FaYoutube,
   FaDribbble,
 } from "react-icons/fa";
+import Button from "@mui/material/Button";
 
 const headerData = {
   name: "Nathan Foss",
@@ -23,6 +25,9 @@ const headerData = {
 };
 
 function Header({ toggleHeader, toggleHandler }) {
+  const [currentUser, setCurrentUser] = useState(false);
+  const history = useHistory();
+
   const [currentPath, setCurrentPath] = useState("");
   const match = useRouteMatch();
 
@@ -30,6 +35,37 @@ function Header({ toggleHeader, toggleHandler }) {
     setCurrentPath(match.path);
   }, [match]);
 
+  useEffect(() => {
+    userRequest
+      .get("/user/")
+      .then((response) => {
+        setCurrentUser(true);
+      })
+      .catch((notLoggedIn) => {
+        console.log("Not logged in");
+        setCurrentUser(false);
+      });
+  }, []);
+  
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    try {
+      userRequest
+        .post("/logout/", { withCredentials: true })
+        .then(() => {
+          // Request successful
+          console.log("logout success");
+          history.push("/");
+          setCurrentUser(false);
+        })
+        .catch((error) => {
+          // Request failed, handle the error
+          console.log(error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div
@@ -69,7 +105,11 @@ function Header({ toggleHeader, toggleHandler }) {
         </button>
         <div className="header-inner d-flex align-items-start flex-column">
           <Link to="/">
-            <img style={{marginTop: "-20%", clipPath: "circle()"}}src={headerData.imageThumb} alt={headerData.name} />
+            <img
+              style={{ marginTop: "-20%", clipPath: "circle()" }}
+              src={headerData.imageThumb}
+              alt={headerData.name}
+            />
           </Link>
           {/* <Link to="/" className="site-title dot mt-3">
             {headerData.name}
@@ -77,7 +117,7 @@ function Header({ toggleHeader, toggleHandler }) {
 
           {/* <span className="site-slogan">{headerData.designation}</span> */}
 
-          <nav>
+          <nav style={{ marginTop: "-15%", marginBottom: "0%" }}>
             <ul className="vertical-menu scrollspy">
               <li>
                 {currentPath === "/" ? (
@@ -208,7 +248,7 @@ function Header({ toggleHeader, toggleHandler }) {
             </ul>
           </nav>
 
-          <div className="footer mt-auto">
+          <div className="footer mt-auto" style={{ marginBottom: "30%" }}>
             <ul className="social-icons list-inline">
               {!headerData.social.facebook ? null : (
                 <li className="list-inline-item">
@@ -246,9 +286,15 @@ function Header({ toggleHeader, toggleHandler }) {
                 </li>
               )}
             </ul>
-
+            {currentUser && <Button
+              onClick={logoutHandler}
+              color="secondary"
+              variant="contained"
+            >
+              Log out
+            </Button>}
             <span className="copyright">
-              &copy; {new Date().getFullYear()} Bako Template
+              &copy; {new Date().getFullYear()} nathanfoss.dev
             </span>
           </div>
         </div>

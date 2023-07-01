@@ -5,7 +5,7 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from .serializers import UserSignupSerializer, UserLoginSerializer, UserSerializer, BlogsSerializer
+from .serializers import UserSignupSerializer, UserLoginSerializer, UserSerializer, BlogsSerializer, BlogDetailSerializer
 from rest_framework import permissions, status
 from rest_framework.permissions import AllowAny
 from .validations import custom_validation, validate_email, validate_password
@@ -64,13 +64,18 @@ class BlogPostViewSet(viewsets.ModelViewSet):
     serializer_class = BlogsSerializer
     queryset = models.BlogPost.objects.all()
     permission_classes = [AllowAny]  # Allow unauthenticated access
+    
+class BlogDetailViewSet(viewsets.ModelViewSet):
+	serializer_class = BlogDetailSerializer
+	queryset = models.BlogPost.objects.all()
+	permission_classes = [AllowAny]  # Allow unauthenticated access
+	def get_queryset(self):
+		queryset = super().get_queryset()
+		pk = self.kwargs.get('pk')  # Retrieve the primary key from the URL kwargs
+		if pk is not None:
+			queryset = queryset.filter(pk=pk)  # Filter the queryset based on the primary key
+		return queryset
 
-    
-# class BlogPostView(APIView):
-# 	def get(self, request):
-# 		serializer = BlogsSerializer(request)
-# 		return Response({'blogs': serializer.data}, status=status.HTTP_200_OK)
-    
 class LikePostView(APIView):
 	def like_post(self, request, pk):
 		post = get_object_or_404(models.BlogPost, id=request.POST.get('post_id'))

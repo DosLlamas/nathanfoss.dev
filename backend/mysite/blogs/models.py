@@ -65,6 +65,10 @@ class BlogPostFavorite(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_favorited_by')
     blog = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='blog_favorites', default=None)
 
+import math
+from django.template.defaultfilters import strip_tags
+
+
 class BlogPost(models.Model):
     author = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=50)
@@ -75,5 +79,17 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return f"{self.title} | {self.author.username}"
+    
+    def save(self, *args, **kwargs):
+        # Calculate read time based on content length
+        words_per_minute = 200  # Adjust this value based on average reading speed
+        content_text = strip_tags(self.content)  # Remove HTML tags from content
+        word_count = len(content_text.split())
+        read_time_minutes = math.ceil(word_count / words_per_minute)
+
+        # Format read time as "X min read"
+        self.expected_read_time = f"{read_time_minutes} min read"
+
+        super().save(*args, **kwargs)
 
     

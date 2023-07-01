@@ -6,32 +6,17 @@ import Layout from "../components/Layout/Layout"; //Use and import Layout2 when 
 import Favorite from "@mui/icons-material/Favorite";
 import userRequest from "./userRequests";
 function BlogDetails(props) {
-  const [meta, setMeta] = useState("");
+  const [meta, setMeta] = useState([]);
   const [content, setContent] = useState("");
   const blogId = props.match.params.id;
-  const blogFile = props.match.params.title;
+  // const blogFile = props.match.params.title;
   // isPostLiked needs to fetch be fetched to the backend on page load to see if the user liked this post or not
   const [isPostLiked, setIsPostLiked] = useState(false);
 
   useEffect(() => {
-    // import(`../blogs/${blogFile}.md`)
-    //   .then((res) => res.default)
-    //   .then((res) => {
-    //     fetch(res)
-    //       .then((data) => data.text())
-    //       .then((res) => {
-    //         let result = fm(res);
-    //         setMeta(result.attributes);
-    //         setContent(result.body);
-    //       });
-    //   })
-    //   .catch((err) => {
-    //     throw new Error(err);
-    //   });
-    userRequest.get("/blogs")
+    userRequest.get(`/blogs/${blogId}`)
     .then((response) => {
-      // setMeta(response)
-      console.log(response)
+      setMeta(response.data)
     })
     .catch((error) => {
       console.log(error)
@@ -42,12 +27,12 @@ function BlogDetails(props) {
     window.scrollTo(0, 0);
   }, []);
 
-  const disqusShortname = "bako-1"; //found in your Disqus.com dashboard
-  const disqusConfig = {
-    url: "https://jthemes.net/themes/react/bako", //Homepage link of this site.
-    identifier: blogId,
-    title: blogFile,
-  };
+  // const disqusShortname = "bako-1"; //found in your Disqus.com dashboard
+  // const disqusConfig = {
+  //   url: "https://jthemes.net/themes/react/bako", //Homepage link of this site.
+  //   identifier: blogId,
+  //   // title: blogFile,
+  // };
 
   // document.body.classList.add("dark");
   //Uncomment the above line if you use dark version
@@ -63,23 +48,25 @@ function BlogDetails(props) {
   };
   return (
     <Layout>
+      {console.log(meta)}
       <section className="shadow-blue white-bg padding mt-0">
         <ul className="list-inline portfolio-info mt-0">
           <li className="list-inline-item">
             <i className="icon-user"></i>
-            {meta.author}
+            {meta.author?.username ? meta.author.username : "Loading..."}
           </li>
           <li className="list-inline-item">
             <i className="icon-calendar"></i>
-            {meta.date}
+            {/* {meta.date} */}
+            {console.log(meta)}
           </li>
           <li className="list-inline-item">
             <i className="icon-folder"></i>
-            {meta.category}
+            {/* {meta.category} */}
           </li>
         </ul>
         <div className="blog-content mt-4">
-          <Markdown children={content}></Markdown>
+          <Markdown children={meta.content ? meta.title + "\n" + meta.content : "Loading..."}></Markdown>
         </div>
         <div className="mi-blog-details-comments mt-4">
           <form>

@@ -1,43 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Blog from "../Items/Blog";
-
-const blogsData = [
-  {
-    id: 1,
-    title: "The Truth About Design In 3 Minutes",
-    category: "Thoughts",
-    featureImage: "images/blog/1.jpg",
-    date: "13 March, 2021",
-    author: "Bako Doe",
-    slug: "the-truth-about-design",
-  },
-  {
-    id: 2,
-    title: "The Ugly Truth About Design",
-    category: "Blog",
-    featureImage: "images/blog/2.jpg",
-    date: "13 March, 2021",
-    author: "Bako Doe",
-    slug: "the-ugly-truth-about-design",
-  },
-  {
-    id: 3,
-    title: "How To Become Better With UI Design",
-    category: "Thoughts",
-    featureImage: "images/blog/3.jpg",
-    date: "13 March, 2021",
-    author: "Bako Doe",
-    slug: "how-to-become-better-with-ui-design",
-  },
-];
+import userRequest from "../../pages/userRequests";
 
 function Blogs() {
+  
+  const [meta, setMeta] = useState([]);
+
+  useEffect(() => {
+    userRequest
+      .get("/blogs")
+      .then((response) => {
+        setMeta(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
       <div className="row">
-        {blogsData.map((blog) => (
-          <div className="col-md-4" key={blog.id}>
+        {meta.map(blog => (
+          <div className="col-md-4" key={blog.title}>
             <Blog blog={blog} />
           </div>
         ))}
@@ -51,5 +35,4 @@ function Blogs() {
     </>
   );
 }
-
 export default Blogs;
