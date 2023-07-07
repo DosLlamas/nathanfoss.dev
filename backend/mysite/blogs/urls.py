@@ -12,5 +12,5 @@ urlpatterns = [
     path('login/', views.UserLogin.as_view(), name='login'),
     path('logout/', views.UserLogout.as_view(), name='logout'),
     path('user/', views.UserView.as_view(), name='user'),
-    # path('like-post/<int:pk>/', views.LikePostView.as_view(), name='like-post'),
+    path('like/<int:pk>/', views.LikePostView.as_view(), name='like-post'),
 ] + router.urls

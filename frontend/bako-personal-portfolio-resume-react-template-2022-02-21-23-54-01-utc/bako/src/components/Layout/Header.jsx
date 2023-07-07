@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useHistory, useRouteMatch } from "react-router-dom";
-import userRequest from "../../pages/userRequests";
+// import userRequest from "../../pages/userRequests";
 import {
-  FaFacebookF,
   FaTwitter,
-  FaInstagram,
   FaYoutube,
-  FaDribbble,
+  FaLinkedin,
+  
 } from "react-icons/fa";
-import Button from "@mui/material/Button";
+import { 
+  SiLinktree,
+  SiSpotify,
+  SiGithub
+} from "react-icons/si";
+// import Button from "@mui/material/Button";
 
 const headerData = {
   name: "Nathan Foss",
   designation: "Web Developer",
   imageThumb: "/images/headshot.png",
   social: {
-    facebook: "https://facebook.com",
-    twitter: "https://twitter.com",
-    instagram: "https://www.instagram.com/",
-    youtue: "https://www.youtube.com/",
-    dribbble: "https://dribbble.com/",
+    linktree: "https://linktr.ee/whats_nate",
+    linkedin: "https://www.linkedin.com/in/nathan-foss/",
+    github: "https://github.com/DosLlamas",
+    twitter: "https://twitter.com/nathanfoss_dev",
+    youtube: "https://www.youtube.com/@NateProgramming",
+    spotify: "https://open.spotify.com/show/2gqDtYz2JoZv4gBq3xAckx?si=70f7795df8e74ae9",
   },
 };
 
 function Header({ toggleHeader, toggleHandler }) {
-  const [currentUser, setCurrentUser] = useState(false);
+  // const [currentUser, setCurrentUser] = useState(false);
   const history = useHistory();
 
   const [currentPath, setCurrentPath] = useState("");
@@ -35,37 +40,37 @@ function Header({ toggleHeader, toggleHandler }) {
     setCurrentPath(match.path);
   }, [match]);
 
-  useEffect(() => {
-    userRequest
-      .get("/user/")
-      .then((response) => {
-        setCurrentUser(true);
-      })
-      .catch((notLoggedIn) => {
-        console.log("Not logged in");
-        setCurrentUser(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   userRequest
+  //     .get("/user/")
+  //     .then((response) => {
+  //       setCurrentUser(true);
+  //     })
+  //     .catch((notLoggedIn) => {
+  //       console.log("Not logged in");
+  //       setCurrentUser(false);
+  //     });
+  // }, []);
   
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    try {
-      userRequest
-        .post("/logout/", { withCredentials: true })
-        .then(() => {
-          // Request successful
-          console.log("logout success");
-          history.push("/");
-          setCurrentUser(false);
-        })
-        .catch((error) => {
-          // Request failed, handle the error
-          console.log(error);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const logoutHandler = (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     userRequest
+  //       .post("/logout/", { withCredentials: true })
+  //       .then(() => {
+  //         // Request successful
+  //         console.log("logout success");
+  //         history.push("/");
+  //         setCurrentUser(false);
+  //       })
+  //       .catch((error) => {
+  //         // Request failed, handle the error
+  //         console.log(error);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <>
       <div
@@ -106,7 +111,7 @@ function Header({ toggleHeader, toggleHandler }) {
         <div className="header-inner d-flex align-items-start flex-column">
           <Link to="/">
             <img
-              style={{ marginTop: "-20%", clipPath: "circle()" }}
+              className="headshot"
               src={headerData.imageThumb}
               alt={headerData.name}
             />
@@ -165,17 +170,18 @@ function Header({ toggleHeader, toggleHandler }) {
                     offset={-50}
                     duration={500}
                   >
-                    <i className="icon-bulb"></i>Services
+                    <i className="icon-bulb"></i>Skills
                   </ScrollLink>
                 ) : (
                   <Link to="/">
-                    <i className="icon-bulb"></i>Services
+                    <i className="icon-bulb"></i>Skills
                   </Link>
                 )}
               </li>
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    
                     activeClass="active"
                     to="section-experiences"
                     spy={true}
@@ -201,15 +207,15 @@ function Header({ toggleHeader, toggleHandler }) {
                     offset={-50}
                     duration={500}
                   >
-                    <i className="icon-grid"></i>Works
+                    <i className="icon-grid"></i>Projects
                   </ScrollLink>
                 ) : (
                   <Link to="/">
-                    <i className="icon-grid"></i>Works
+                    <i className="icon-grid"></i>Projects
                   </Link>
                 )}
               </li>
-              <li>
+              {/* <li>
                 {currentPath === "/" ? (
                   <ScrollLink
                     activeClass="active"
@@ -226,73 +232,62 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-pencil"></i>Blog
                   </Link>
                 )}
-              </li>
-              <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    activeClass="active"
-                    to="section-contact"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-phone"></i>Contact
-                  </ScrollLink>
-                ) : (
-                  <Link to="/">
-                    <i className="icon-phone"></i>Contact
-                  </Link>
-                )}
-              </li>
+              </li> */}
             </ul>
           </nav>
 
           <div className="footer mt-auto" style={{ marginBottom: "30%" }}>
             <ul className="social-icons list-inline">
-              {!headerData.social.facebook ? null : (
+            {!headerData.social.linktree ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.facebook}>
-                    <FaFacebookF />
+                  <a target="_blank" href={headerData.social.linktree}>
+                    <SiLinktree />
+                  </a>
+                </li>
+              )}
+              {!headerData.social.linkedin ? null : (
+                <li className="list-inline-item">
+                  <a target="_blank" href={headerData.social.linkedin}>
+                    <FaLinkedin />
+                  </a>
+                </li>
+              )}
+              {!headerData.social.github ? null : (
+                <li className="list-inline-item">
+                  <a target="_blank" href={headerData.social.github}>
+                    <SiGithub />
                   </a>
                 </li>
               )}
               {!headerData.social.twitter ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.twitter}>
+                  <a target="_blank" href={headerData.social.twitter}>
                     <FaTwitter />
                   </a>
                 </li>
               )}
-              {!headerData.social.instagram ? null : (
+              {!headerData.social.youtube ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.instagram}>
-                    <FaInstagram />
-                  </a>
-                </li>
-              )}
-              {!headerData.social.youtue ? null : (
-                <li className="list-inline-item">
-                  <a href={headerData.social.youtue}>
+                  <a target="_blank" href={headerData.social.youtube}>
                     <FaYoutube />
                   </a>
                 </li>
               )}
-              {!headerData.social.dribbble ? null : (
+              {!headerData.social.spotify ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.dribbble}>
-                    <FaDribbble />
+                  <a target="_blank" href={headerData.social.spotify}>
+                    <SiSpotify />
                   </a>
                 </li>
               )}
             </ul>
-            {currentUser && <Button
+            {/* {currentUser && <Button
               onClick={logoutHandler}
               color="secondary"
               variant="contained"
             >
               Log out
-            </Button>}
+            </Button>} */}
             <span className="copyright">
               &copy; {new Date().getFullYear()} nathanfoss.dev
             </span>

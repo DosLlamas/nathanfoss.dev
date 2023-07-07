@@ -121,6 +121,86 @@ section {
   }
 }
 
+.svg-wee{
+
+  @keyframes owb_intro_shape {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.owb_shapes_intro {
+    opacity: 0;
+    animation: owb_intro_shape 1.4s ease forwards 1s;
+}
+.owb_shapes_intro:nth-of-type(2) {
+    animation-delay: 2s;
+}
+
+/* <!--  ========== Shape 1 (Oval) --> */
+@keyframes rotate_owb_top_shape_oval {
+    0%   {transform: rotate(0);}
+    25%  {transform: rotate(10deg);}
+    73%  {transform: rotate(-10deg);}
+    100% {transform: rotate(10deg);}
+}
+
+#owb_top_shape_oval {
+    animation: rotate_owb_top_shape_oval 15s cubic-bezier(0.445, 0.050, 0.550, 0.950) 2.4s alternate infinite;
+}
+
+/* <!--  ========== Shape 2 (Poligon) --> */
+@keyframes rotate_owb_top_shape_polygon {
+    0%  {transform: rotate(0);}
+    33%  {transform: rotate(-20deg);}
+    66%  {transform: rotate(0deg);}
+    100% {transform: rotate(-20deg);}
+}
+#owb_top_shape_polygon {
+    animation: rotate_owb_top_shape_polygon 15s cubic-bezier(0.445, 0.050, 0.550, 0.950) 3.4s alternate infinite;
+}
+
+/* <!--  ========== Squares containers --> */
+@keyframes owb_top_squares_1 {
+    0%   {transform: rotate(0);}
+    33%  {transform: rotate(7deg);}
+    66%  {transform: rotate(-2deg);}
+    100% {transform: rotate(3deg);}
+}
+@keyframes owb_top_squares_2 {
+    0%   {transform: rotate(0);}
+    33%  {transform: rotate(-8deg);}
+    66%  {transform: rotate(3deg);}
+    100% {transform: rotate(-4deg);}
+}
+
+#owb_top_squares_1 {
+    animation: owb_top_squares_1 30s 2s cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite alternate;
+}
+#owb_top_squares_2 {
+    animation: owb_top_squares_2 20s 3s cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite alternate;
+}
+
+/* <!-- ========== Single squares --> */
+@keyframes owb_top_squares_poly {
+    0% {
+        opacity: 0;
+        transform: scale(.8) rotate(-20deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+#owb_top_squares_1 polygon,
+#owb_top_squares_2 polygon {
+    opacity: 0;
+    animation: owb_top_squares_poly 1s cubic-bezier(0.445, 0.050, 0.550, 0.950) forwards;
+    transform-origin: center center;
+}
+}
+
 .fact-item {
   h2 {
     font-size: 36px;
@@ -368,7 +448,7 @@ section {
     font-weight: 400;
     position: relative;
     &:hover {
-      color: #000;
+      color: #fff;
       &:after {
         height: 7px;
       }
@@ -657,17 +737,33 @@ button {
   background-color: none;
   background: none;
 }
+.blog-like-btn {
+  display: inline-block;
+  color: #888;
+}
+.blog-like-btn:hover {
+  color: var(--joy-palette-danger-600, #A10E25);
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.blog-like-btn-liked {
+  display: inline-block;
+  color: var(--joy-palette-danger-600, #A10E25);
+  cursor: pointer;
+}
+
+
 .blog-favorite-btn {
   display: inline-block;
   color: #888;
 }
 .blog-favorite-btn:hover {
-  color: var(--joy-palette-danger-600, #A10E25);
+  color: yellow;
   cursor: pointer;
   transition: 0.2s ease-in;
 }
 .blog-favorite-btn-liked {
   display: inline-block;
-  color: var(--joy-palette-danger-600, #A10E25);
+  color: yellow;
   cursor: pointer;
 }

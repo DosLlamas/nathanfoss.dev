@@ -4,24 +4,24 @@ import Experience from "../Items/Experience";
 const experiencesData = [
   {
     id: 1,
-    year: "2019 - Present",
-    degree: "Academic Degree",
+    year: "12/2022 - Present",
+    degree: "Software Engineer",
     content:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.",
+      "Software Engineer Apprentice @ Coding For Hermit Crabs, Part-Time | Web Development Instructor at Code2College, Part-Time",
   },
   {
     id: 2,
-    year: "2018 - 2015",
-    degree: "Bachelor’s Degree",
+    year: "09/2022 - 01/2023",
+    degree: "Software Engineering Bootcamp",
     content:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.",
+      "Learned Javascript Fundamentals, Object Oriented JavaScript, Intro to React, React: Components and Props, Ruby Fundamentals, Regex, PostgreSQL and APIs, Ruby on Rails, Data Structures and Algorithms. Connected and supported community: Started a Discord to tutor and assist my current and incoming cohorts and homework, developed a readme and documentation around useful resources and guidelines for the course to assist newcomers, set up and proctored study sessions after class to improve student morale and outcomes",
   },
   {
     id: 3,
-    year: "2015 - 2012",
-    degree: "Honours Degree",
+    year: "2015 - 2021",
+    degree: "Self taught, Software Engineeing Freelancing",
     content:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.",
+      "Completed Advanced Placement(AP) Computer Science courses in Java for college credit, building projects for myself and others for free using, Java, HTML and CSS",
   },
 ];
 

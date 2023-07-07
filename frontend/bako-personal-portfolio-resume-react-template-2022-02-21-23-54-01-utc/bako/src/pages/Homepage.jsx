@@ -24,77 +24,71 @@ function Homepage() {
       <Element name="section-home">
         <Herosection />
       </Element>
+      
+      {/* Put GitHub stats here if possible */}
+      {/* <Element name="section-funfacts">
+        <Funfacts />
+      </Element> */}
 
       <Element name="section-about">
-        <section className="shadow-blue white-bg padding">
-          <SectionHeading title="About Me" />
+        <section className="white-bg">
           <About />
+          <br></br>
         </section>
-      </Element>
-
-      <Element name="section-skills">
-        <section className="shadow-blue white-bg padding">
-          <SectionHeading title="My skills" />
-          <Skills />
-        </section>
-      </Element>
-
-      <Element name="section-funfacts">
-        <Funfacts />
       </Element>
 
       <Element name="section-services">
-        <section className="shadow-blue white-bg padding">
-          <SectionHeading title="Services" />
+        <section className="white-bg padding">
+          <SectionHeading title="My skills" />
           <Services />
         </section>
       </Element>
 
       <Element name="section-experiences">
-        <section className="shadow-blue white-bg padding">
+        <section className="white-bg padding">
           <SectionHeading title="Experience" />
           <Experiences />
         </section>
       </Element>
 
       <Element name="section-portfolios">
-        <section className="shadow-blue white-bg padding">
+        <section className="white-bg padding">
           <SectionHeading title="Portfolio" />
           <Portfolios />
         </section>
       </Element>
 
-      <Element name="section-pricing">
-        <section className="shadow-blue white-bg padding">
+      {/* <Element name="section-pricing">
+        <section className="white-bg padding">
           <SectionHeading title="Pricing table" />
           <PricingTable />
         </section>
-      </Element>
+      </Element> */}
 
       <Element name="section-testimonials">
-        <section className="shadow-blue white-bg padding">
+        <section className="white-bg padding">
           <SectionHeading title="Testimonials" />
           <Testimonials />
         </section>
       </Element>
 
-      <Element name="section-clients">
+      {/* <Element name="section-clients">
         <Clients />
-      </Element>
+      </Element> */}
 
-      <Element name="section-blogs">
-        <section className="shadow-blue white-bg padding">
+      {/* <Element name="section-blogs">
+        <section className="white-bg padding">
           <SectionHeading title="Recent posts" />
           <Blogs />
         </section>
-      </Element>
+      </Element> */}
 
-      <Element name="section-contact">
-        <section className="shadow-blue white-bg padding">
+      {/* <Element name="section-contact">
+        <section className="white-bg padding">
           <SectionHeading title="Get in touch" />
           <Contact />
         </section>
-      </Element>
+      </Element> */}
     </Layout>
   );
 }

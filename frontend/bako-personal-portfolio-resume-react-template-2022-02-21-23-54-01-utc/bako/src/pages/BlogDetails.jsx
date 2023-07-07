@@ -4,6 +4,8 @@ import Markdown from "markdown-to-jsx";
 import fm from "front-matter";
 import Layout from "../components/Layout/Layout"; //Use and import Layout2 when you use multipage
 import Favorite from "@mui/icons-material/Favorite";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import StarIcon from "@mui/icons-material/Star";
 import userRequest from "./userRequests";
 function BlogDetails(props) {
   const [meta, setMeta] = useState([]);
@@ -12,15 +14,30 @@ function BlogDetails(props) {
   // const blogFile = props.match.params.title;
   // isPostLiked needs to fetch be fetched to the backend on page load to see if the user liked this post or not
   const [isPostLiked, setIsPostLiked] = useState(false);
+  const [isPostFavorited, setIsPostFavorited] = useState(false);
+
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    userRequest.get(`/blogs/${blogId}`)
-    .then((response) => {
-      setMeta(response.data)
-    })
-    .catch((error) => {
-      console.log(error)
-    });
+    userRequest
+      .get("/user/")
+      .then((response) => {
+        setCurrentUser(response.data.user.email);
+      })
+      .catch((notLoggedIn) => {
+        console.log("Not logged in");
+      });
+  }, []);
+
+  useEffect(() => {
+    userRequest
+      .get(`/blogs/${blogId}`)
+      .then((response) => {
+        setMeta(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   useEffect(() => {
@@ -37,18 +54,40 @@ function BlogDetails(props) {
   // document.body.classList.add("dark");
   //Uncomment the above line if you use dark version
   const likeHandler = (e) => {
-    e.preventDefault()
-    setIsPostLiked(!isPostLiked);
-    const postId = {
-      blogId,
+    e.preventDefault();
+    if (currentUser) {
+      setIsPostLiked(!isPostLiked);
+      const likeId = {
+        blogId: blogId,
+        user: currentUser,
+      };
+      console.log("blogId: ", blogId);
+      // console.log("postId: ", postId);
+      userRequest.post("/like/", likeId);
+    } else {
+      window.alert("Please log in or sign up to like a post");
     }
-    console.log("blogId: ", blogId)
-    console.log("postId: ", postId)
-    // userRequest.post("/like_post", blogId)
+  };
+
+  const favoriteHandler = (e) => {
+    e.preventDefault();
+    if (currentUser) {
+      setIsPostFavorited(!isPostFavorited);
+      const postId = {
+        blogId,
+      };
+      console.log("blogId: ", blogId);
+      console.log("postId: ", postId);
+      // userRequest.post("/like_post", blogId)
+    } 
+    else {
+      window.alert("Please log in or sign up to favorite a post")
+    }
   };
   return (
     <Layout>
       {console.log(meta)}
+      {console.log(currentUser)}
       <section className="shadow-blue white-bg padding mt-0">
         <ul className="list-inline portfolio-info mt-0">
           <li className="list-inline-item">
@@ -66,18 +105,31 @@ function BlogDetails(props) {
           </li>
         </ul>
         <div className="blog-content mt-4">
-          <Markdown children={meta.content ? meta.title + "\n" + meta.content : "Loading..."}></Markdown>
+          <Markdown
+            children={
+              meta.content ? meta.title + "\n" + meta.content : "Loading..."
+            }
+          ></Markdown>
         </div>
         <div className="mi-blog-details-comments mt-4">
           <form>
             <button
-              className={
-                isPostLiked ? "blog-favorite-btn-liked" : "blog-favorite-btn"
-              }
+              className={isPostLiked ? "blog-like-btn-liked" : "blog-like-btn"}
               onClick={likeHandler}
               type="submit"
             >
               <Favorite /> 117
+            </button>
+            <button
+              className={
+                isPostFavorited
+                  ? "blog-favorite-btn-liked"
+                  : "blog-favorite-btn"
+              }
+              onClick={favoriteHandler}
+              type="submit"
+            >
+              {isPostFavorited ? <StarIcon /> : <StarOutlineIcon />}
             </button>
           </form>
           {/* <Disqus.DiscussionEmbed

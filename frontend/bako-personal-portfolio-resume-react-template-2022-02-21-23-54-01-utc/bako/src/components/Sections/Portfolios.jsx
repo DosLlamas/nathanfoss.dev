@@ -8,29 +8,33 @@ const filters = [
   },
   {
     id: 2,
-    name: "Branding",
+    name: "React",
   },
   {
     id: 3,
-    name: "Creative",
+    name: "JavaScript",
   },
   {
     id: 4,
-    name: "Design",
+    name: "Ruby",
   },
   {
     id: 5,
     name: "Art",
+  },
+  {
+    id: 6,
+    name: "Python",
   },
 ];
 
 const allData = [
   {
     id: 1,
-    name: "Creative Art",
-    category: ["creative"],
-    image: "images/portfolio/1.jpg",
-    slug: "creative-art",
+    name: "Binary to Score Converter",
+    category: ["javascript"],
+    image: "/images/portfolio/binary.png",
+    slug: "binary-to-score-converter",
   },
   {
     id: 2,

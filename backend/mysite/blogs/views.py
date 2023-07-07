@@ -10,7 +10,6 @@ from rest_framework import permissions, status
 from rest_framework.permissions import AllowAny
 from .validations import custom_validation, validate_email, validate_password
 
-
 class UserSignup(APIView):
 	permission_classes = (permissions.AllowAny,)
 	def post(self, request):
@@ -21,7 +20,6 @@ class UserSignup(APIView):
 			if user:
 				return Response(serializer.data, status=status.HTTP_201_CREATED)
 		return Response(status=status.HTTP_400_BAD_REQUEST)
-
 
 class UserLogin(APIView):
 	permission_classes = (permissions.AllowAny,)
@@ -37,14 +35,12 @@ class UserLogin(APIView):
 			login(request, user)
 			return Response(serializer.data, status=status.HTTP_200_OK)
 
-
 class UserLogout(APIView):
 	permission_classes = (permissions.AllowAny,)
 	authentication_classes = ()
 	def post(self, request):
 		logout(request)
 		return Response(status=status.HTTP_200_OK)
-
 
 class UserView(APIView):
 	permission_classes = (permissions.IsAuthenticated,)
@@ -78,5 +74,7 @@ class BlogDetailViewSet(viewsets.ModelViewSet):
 
 class LikePostView(APIView):
 	def like_post(self, request, pk):
-		post = get_object_or_404(models.BlogPost, id=request.POST.get('post_id'))
-		post.likes.add(request.user)
+		post = get_object_or_404(models.BlogPostLike, id=request.POST.get('post_id'))
+		post.user.add(request.user)
+		post.blog.add(request.blogId)
+		return Response(status=status.HTTP_200_OK)
