@@ -9,10 +9,10 @@ import {
   
 } from "react-icons/fa";
 import { 
-  SiLinktree,
   SiSpotify,
   SiGithub
 } from "react-icons/si";
+import { Icon } from '@iconify/react';
 // import Button from "@mui/material/Button";
 
 const headerData = {
@@ -241,7 +241,7 @@ function Header({ toggleHeader, toggleHandler }) {
             {!headerData.social.linktree ? null : (
                 <li className="list-inline-item">
                   <a target="_blank" href={headerData.social.linktree}>
-                    <SiLinktree />
+                  <Icon icon="simple-icons:linktree" />
                   </a>
                 </li>
               )}
